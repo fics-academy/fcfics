@@ -62,6 +62,11 @@ img{
   border-radius:999px;
 }
 
+
+/* =========================
+   NAV
+========================= */
+
 .nav{
   position:fixed;
   top:0;
@@ -170,6 +175,11 @@ img{
   font-family:'Noto Sans JP',sans-serif;
 }
 
+
+/* =========================
+   HERO
+========================= */
+
 .hero-section{
   position:relative;
   min-height:100vh;
@@ -235,27 +245,75 @@ img{
   margin-bottom:46px;
 }
 
+
+/* =========================
+   CTA
+========================= */
+
 .cta-btn{
+  position:relative;
   display:inline-flex;
   align-items:center;
-  justify-content:center;
-  padding:18px 28px;
-  background:linear-gradient(135deg,#ff2747 0%,#d4001c 55%,#163a84 100%);
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,.1);
-  font-size:14px;
-  font-weight:800;
-  letter-spacing:.5px;
-  box-shadow:
-  0 18px 50px rgba(212,0,28,.45),
-  0 0 40px rgba(45,99,211,.18);
-  transition:.3s ease;
+  justify-content:space-between;
+  gap:34px;
+  min-width:250px;
+  padding:15px 18px 15px 20px;
+  background:#050505;
+  border:1px solid rgba(255,255,255,.28);
+  border-radius:2px;
   color:#fff;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:1px;
+  overflow:hidden;
+  transition:.35s ease;
+}
+
+.cta-btn::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:3px;
+  height:100%;
+  background:var(--red);
+  transition:.35s ease;
+}
+
+.cta-btn::after{
+  content:"→";
+  position:relative;
+  z-index:2;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:24px;
+  line-height:1;
+  transition:.35s ease;
+}
+
+.cta-btn span{
+  position:relative;
+  z-index:2;
 }
 
 .cta-btn:hover{
-  transform:translateY(-2px);
+  background:var(--red);
+  border-color:var(--red);
+  transform:translateX(4px);
 }
+
+.cta-btn:hover::before{
+  width:100%;
+  opacity:.18;
+}
+
+.cta-btn:hover::after{
+  transform:translateX(5px);
+}
+
+
+/* =========================
+   COMMON
+========================= */
 
 .section-label{
   color:#fff;
@@ -288,6 +346,7 @@ img{
 .team-section,
 .academy-section,
 .school-section,
+.kids-section,
 .results-section,
 .commitment-section,
 .inside-section,
@@ -297,12 +356,27 @@ img{
   padding:140px 24px;
 }
 
+
+/* =========================
+   SECTION BACKGROUNDS
+========================= */
+
 .philosophy-section{
   background:linear-gradient(180deg,#071120 0%,#09192d 100%);
+  padding-bottom:0;
+}
+
+.team-section,
+.academy-section,
+.school-section,
+.kids-section{
+  border-top:1px solid rgba(255,255,255,.12);
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .team-section{
   background:linear-gradient(180deg,#180008 0%,#070707 100%);
+  padding-top:0;
 }
 
 .academy-section{
@@ -311,6 +385,10 @@ img{
 
 .school-section{
   background:linear-gradient(180deg,#091327 0%,#050505 100%);
+}
+
+.kids-section{
+  background:linear-gradient(180deg,#120006 0%,#050505 100%);
 }
 
 .results-section{
@@ -330,6 +408,11 @@ img{
   overflow:hidden;
   background:#000;
 }
+
+
+/* =========================
+   FULL IMAGE
+========================= */
 
 .full-image{
   width:100vw;
@@ -370,6 +453,10 @@ img{
   background-image:url('https://yatsuhashi-sc.com/_p/acre/7432/images/pc/e5b66d45.jpg');
 }
 
+.kids-image{
+  background-image:url('https://yatsuhashi-sc.com/_p/acre/7432/images/pc/5ba896a2.jpg');
+}
+
 .results-image{
   background-image:url('https://yatsuhashi-sc.com/_p/acre/7432/images/pc/c4924d63.jpg');
 }
@@ -381,6 +468,11 @@ img{
 .inside-image{
   background-image:url('https://yatsuhashi-sc.com/_p/acre/7432/images/pc/0aa7a65c.jpg');
 }
+
+
+/* =========================
+   COURSE
+========================= */
 
 .course-name{
   color:#fff;
@@ -398,6 +490,17 @@ img{
   font-size:14px;
   font-weight:700;
 }
+
+.course-divider{
+  height:1px;
+  width:100%;
+  background:linear-gradient(90deg,rgba(212,0,28,.9),rgba(75,95,167,.35),transparent);
+}
+
+
+/* =========================
+   INSTAGRAM
+========================= */
 
 .instagram-minimal{
   margin-top:48px;
@@ -436,6 +539,11 @@ img{
   font-weight:800;
   color:#fff;
 }
+
+
+/* =========================
+   FINAL
+========================= */
 
 .final-bg{
   position:absolute;
@@ -504,33 +612,10 @@ img{
   font-size:14px;
 }
 
-@media(min-width:768px){
 
-  .hero-inner{
-    padding:140px 8vw 90px;
-  }
-
-  .philosophy-section,
-  .team-section,
-  .academy-section,
-  .school-section,
-  .results-section,
-  .commitment-section,
-  .inside-section,
-  .final-section,
-  .cta-section{
-    padding:180px 8vw;
-  }
-
-  .full-image{
-    height:88vh;
-  }
-
-  .course-name{
-    font-size:22px;
-  }
-
-}
+/* =========================
+   PHILOSOPHY COLORS
+========================= */
 
 .philosophy-color-title{
   display:flex;
@@ -550,18 +635,113 @@ img{
   display:block;
 }
 
-.red .color-chip{
+.red-chip{
   background:#d4001c;
 }
 
-.indigo .color-chip{
+.indigo-chip{
   background:#4b5fa7;
 }
 
-.white .color-chip{
+.white-chip{
   background:#ffffff;
   border:1px solid rgba(255,255,255,.25);
 }
+
+
+/* =========================
+   COLOR ACCORDION
+========================= */
+
+.color-accordion{
+  margin-top:40px;
+  border-top:1px solid rgba(255,255,255,.12);
+}
+
+.color-item{
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.color-toggle{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding:22px 0;
+  background:none;
+  border:0;
+  color:#fff;
+  text-align:left;
+  cursor:pointer;
+}
+
+.color-toggle-main{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:32px;
+  letter-spacing:2px;
+}
+
+.color-toggle-icon{
+  width:24px;
+  height:24px;
+  position:relative;
+  flex-shrink:0;
+}
+
+.color-toggle-icon::before,
+.color-toggle-icon::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:14px;
+  height:1px;
+  background:#fff;
+  transform:translate(-50%,-50%);
+  transition:.3s ease;
+}
+
+.color-toggle-icon::after{
+  transform:translate(-50%,-50%) rotate(90deg);
+}
+
+.color-item.active .color-toggle-icon::after{
+  transform:translate(-50%,-50%) rotate(0);
+}
+
+.color-content{
+  display:grid;
+  grid-template-rows:0fr;
+  transition:grid-template-rows .4s ease;
+}
+
+.color-content-inner{
+  overflow:hidden;
+  color:#fff;
+  line-height:2;
+  font-size:14px;
+  padding:0;
+  opacity:0;
+  transition:opacity .3s ease,padding .4s ease;
+}
+
+.color-item.active .color-content{
+  grid-template-rows:1fr;
+}
+
+.color-item.active .color-content-inner{
+  padding:0 0 24px;
+  opacity:1;
+}
+
+
+/* =========================
+   HANDWRITTEN
+========================= */
 
 .handwritten-copy{
   font-size:clamp(34px,8vw,72px);
@@ -572,11 +752,81 @@ img{
   text-shadow:
   0 0 20px rgba(255,255,255,.08);
 }
-  
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:767px){
+
+  .color-toggle-main{
+    font-size:27px;
+  }
+
+  .cta-btn{
+    min-width:230px;
+  }
+
+}
+
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media(min-width:768px){
+
+  .hero-inner{
+    padding:140px 8vw 90px;
+  }
+
+  .philosophy-section,
+  .team-section,
+  .academy-section,
+  .school-section,
+  .kids-section,
+  .results-section,
+  .commitment-section,
+  .inside-section,
+  .final-section,
+  .cta-section{
+    padding:180px 8vw;
+  }
+
+  .team-section{
+    padding-top:0;
+  }
+
+  .philosophy-section{
+    padding-bottom:0;
+  }
+
+  .full-image{
+    height:88vh;
+  }
+
+  .course-name{
+    font-size:22px;
+  }
+
+}
+
+
+/* =========================
+   BODY
+========================= */
+
 </style>
 </head>
 
+
 <body>
+
+
+<!-- =========================
+     NAV
+========================= -->
 
 <nav class="nav">
 
@@ -601,6 +851,11 @@ img{
   </div>
 
 </nav>
+
+
+<!-- =========================
+     MOBILE MENU
+========================= -->
 
 <div class="mobile-menu" id="mobileMenu">
 
@@ -628,7 +883,17 @@ img{
     <span>サッカースクール</span>
   </a>
 
+  <a href="#kids">
+    KIDS VISITOR
+    <span>キッズビジターコース</span>
+  </a>
+
 </div>
+
+
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero-section">
 
@@ -660,14 +925,19 @@ img{
       </div>
 
       <a href="https://yatsuhashi-sc.com/17797668787683" class="cta-btn">
-  コース一覧を見る
-</a>
+        <span>コース一覧を見る</span>
+      </a>
 
     </div>
 
   </div>
 
 </section>
+
+
+<!-- =========================
+     PHILOSOPHY
+========================= -->
 
 <section class="philosophy-section" id="philosophy">
 
@@ -682,64 +952,136 @@ img{
 
   <div class="section-text">
 
-    <div style="margin-bottom:50px;">
+    <div style="margin-bottom:20px;">
       FC FICSのクラブカラー。
     </div>
 
-    <div class="philosophy-color-title red">
-      <span class="color-chip"></span>
-      PASSION RED
+
+    <div class="color-accordion">
+
+
+      <!-- PASSION RED -->
+
+      <div class="color-item">
+
+        <button class="color-toggle" type="button">
+
+          <span class="color-toggle-main">
+            <span class="color-chip red-chip"></span>
+            PASSION RED
+          </span>
+
+          <span class="color-toggle-icon"></span>
+
+        </button>
+
+        <div class="color-content">
+
+          <div class="color-content-inner">
+
+            正々堂々と挑む。<br>
+            逃げない。ひるまない。<br>
+            目の前の勝負から目を背けない。<br>
+            弱い自分に打ち克ち、強い相手に打ち勝つ。<br>
+            どんな時も、情熱的に、<br>
+            自分自身に胸を張れる選択を。
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- UNFLAGGING INDIGO -->
+
+      <div class="color-item">
+
+        <button class="color-toggle" type="button">
+
+          <span class="color-toggle-main">
+            <span class="color-chip indigo-chip"></span>
+            UNFLAGGING INDIGO
+          </span>
+
+          <span class="color-toggle-icon"></span>
+
+        </button>
+
+        <div class="color-content">
+
+          <div class="color-content-inner">
+
+            積み重ねる。継続する。<br>
+            弛まぬ努力を。<br>
+            すぐに結果は出ないかもしれない。<br>
+            報われない日もあるかもしれない。<br>
+            それでも歩みを止めない。<br>
+            積み重ねた時間は、<br>
+            必ず自分の価値になる。
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- LOTUS WHITE -->
+
+      <div class="color-item">
+
+        <button class="color-toggle" type="button">
+
+          <span class="color-toggle-main">
+            <span class="color-chip white-chip"></span>
+            LOTUS WHITE
+          </span>
+
+          <span class="color-toggle-icon"></span>
+
+        </button>
+
+        <div class="color-content">
+
+          <div class="color-content-inner">
+
+            美しさを求める。<br>
+            それは、見せかけの美しさではない。<br>
+            泥にまみれながらも前を向く姿。<br>
+            苦しい時でも諦めない姿。<br>
+            懸命に努力を続ける姿。<br>
+            情熱を持って闘う。<br>
+            弛まぬ努力を積み重ねる。<br>
+            その先に、本当の美しさがある。<br><br>
+
+            泥の中で美しく咲く白蓮のように。
+
+          </div>
+
+        </div>
+
+      </div>
+
+
     </div>
 
-    正々堂々と挑む。<br>
-    逃げない。ひるまない。<br>
-    目の前の勝負から目を背けない。<br>
-    弱い自分に打ち克ち、強い相手に打ち勝つ。<br>
-    どんな時も、情熱的に、<br>
-    自分自身に胸を張れる選択を。<br>
-
-    <div class="philosophy-color-title indigo">
-      <span class="color-chip"></span>
-      UNFLAGGING INDIGO
-    </div>
-
-    積み重ねる。継続する。<br>
-    弛まぬ努力を。<br>
-    すぐに結果は出ないかもしれない。<br>
-    報われない日もあるかもしれない。<br>
-    それでも歩みを止めない。<br>
-    積み重ねた時間は、<br>
-    必ず自分の価値になる。<br>
-
-    <div class="philosophy-color-title white">
-      <span class="color-chip"></span>
-      LOTUS WHITE
-    </div>
-
-    美しさを求める。<br>
-    それは、見せかけの美しさではない。<br>
-    泥にまみれながらも前を向く姿。<br>
-    苦しい時でも諦めない姿。<br>
-    懸命に努力を続ける姿。<br>
-    情熱を持って闘う。<br>
-    弛まぬ努力を積み重ねる。<br>
-    その先に、本当の美しさがある。<br><br>
-
-    泥の中で美しく咲く白蓮のように。<br><br>
-
-　　　<br>
-    
   </div>
+
 
   <div class="full-image philosophy-image"></div>
 
-  <br><br>
 
   <a href="https://yatsuhashi-sc.com/17797668787683" class="cta-btn">
-    コース一覧を見る
+    <span>コース一覧を見る</span>
   </a>
 
 </section>
+
+
+<!-- =========================
+     TEAM
+========================= -->
 
 <section class="team-section" id="team">
 
@@ -759,12 +1101,14 @@ img{
     技術。判断。駆け引き。<br><br>
 
     個を磨き、チームの力へ。<br>
-    どこからでも、誰からでも勝負できるチームへ。<br><br>
+    どこからでも、誰からでも勝負できる選手へ。<br><br>
 
-    FC FICSは、
-    高い基準を求める。<br>
-    でも、今の実力だけで選手を評価しない。<br>
-    「ここで成長したい」「ここで闘いたい」<br>
+    FC FICSは、高い基準を求める。<br>
+    でも、今の実力だけで選手を評価しない。<br><br>
+
+    「ここで成長したい」<br>
+    「ここで闘いたい」<br><br>
+
     その意志と覚悟を重視する。
 
   </div>
@@ -777,10 +1121,17 @@ img{
   <br><br>
 
   <a href="https://yatsuhashi-sc.com/17496229772496" class="cta-btn">
-    選手コース詳細を見る
+    <span>選手コース詳細を見る</span>
   </a>
 
+  <div class="course-divider" style="margin-top:70px;"></div>
+
 </section>
+
+
+<!-- =========================
+     ACADEMY
+========================= -->
 
 <section class="academy-section" id="academy">
 
@@ -805,7 +1156,7 @@ img{
 
     他チーム所属選手OK。<br>
     選手コースを目指す入口としても。<br><br>
-    
+
   </div>
 
   <div class="info-text">
@@ -816,10 +1167,17 @@ img{
   <br><br>
 
   <a href="https://yatsuhashi-sc.com/17496090462985" class="cta-btn">
-    アカデミーコース詳細を見る
+    <span>アカデミーコース詳細を見る</span>
   </a>
 
+  <div class="course-divider" style="margin-top:70px;"></div>
+
 </section>
+
+
+<!-- =========================
+     SCHOOL
+========================= -->
 
 <section class="school-section" id="school">
 
@@ -848,7 +1206,6 @@ img{
 
     「技術」だけでなく<br>
     「挑戦する姿勢」まで育てるスクール。<br><br>
-  
 
   </div>
 
@@ -860,10 +1217,65 @@ img{
   <br><br>
 
   <a href="https://yatsuhashi-sc.com/16975195954735" class="cta-btn">
-    スクール詳細を見る
+    <span>スクール詳細を見る</span>
   </a>
 
+  <div class="course-divider" style="margin-top:70px;"></div>
+
 </section>
+
+
+<!-- =========================
+     KIDS VISITOR
+========================= -->
+
+<section class="kids-section" id="kids">
+
+  <div class="full-image kids-image"></div>
+
+  <div class="course-name">
+    KIDS VISITOR / キッズビジターコース
+  </div>
+
+  <h2 class="course-title">
+    はじめての<br>
+    サッカーを<br>
+    もっと自由に
+  </h2>
+
+  <div class="course-text">
+
+    サッカーをやってみたい。<br>
+    まずは気軽にボールに触れてみたい。<br><br>
+
+    キッズビジターコースは、<br>
+    FC FICSのサッカーを気軽に体験できるコース。<br><br>
+
+    初めてでも大丈夫。<br>
+    ボールを追いかける楽しさから始めよう。
+
+  </div>
+
+  <div class="info-text">
+    対象：年少〜小学1年生<br>
+    土日不定期開催<br>
+    1回 1,000円
+  </div>
+
+  <br><br>
+
+  <a href="https://fics-academy.github.io/kidsvisitor/" class="cta-btn">
+    <span>キッズビジター詳細を見る</span>
+  </a>
+
+  <div class="course-divider" style="margin-top:70px;"></div>
+
+</section>
+
+
+<!-- =========================
+     RESULTS
+========================= -->
 
 <section class="results-section">
 
@@ -908,10 +1320,15 @@ img{
   <br><br>
 
   <a href="https://yatsuhashi-sc.com/17797668787683" class="cta-btn">
-    コース一覧を見る
+    <span>コース一覧を見る</span>
   </a>
 
 </section>
+
+
+<!-- =========================
+     COMMITMENT
+========================= -->
 
 <section class="commitment-section">
 
@@ -936,17 +1353,22 @@ img{
     もっとできる。<br>
     もっと良くなれる。<br>
     そう信じているから。<br>
+
     だから、<br>
     逃げのプレーを見逃さない。<br>
     取り繕った誉め言葉はかけない。<br>
     弱気な選択を良しとしない。<br>
     課題から目を背けない。<br>
+
     選手にとって、<br>
     耳の痛いことを伝える時もある。<br>
+
     でも、<br>
     向き合うことをやめない。<br>
+
     本気で成長したい選手に、<br>
     本気で向き合う。<br>
+
     選手の本気に、<br>
     指導者も本気で応える。<br><br>
 
@@ -955,11 +1377,16 @@ img{
   <br><br>
 
   <a href="https://yatsuhashi-sc.com/17411533908422" class="cta-btn">
-    指導者紹介を見る
+    <span>指導者紹介を見る</span>
   </a>
 
 </section>
-  
+
+
+<!-- =========================
+     INSIDE FICS
+========================= -->
+
 <section class="inside-section">
 
   <div class="full-image inside-image"></div>
@@ -975,6 +1402,7 @@ img{
 
   <div class="instagram-minimal">
 
+
     <a
       href="https://www.instagram.com/fc_fics_?igsh=d3BxMW5mMjhsbWky&utm_source=qr"
       class="instagram-minimal-link"
@@ -982,11 +1410,29 @@ img{
     >
 
       <div class="instagram-icon">
+
         <svg viewBox="0 0 24 24" fill="none">
-          <path d="M17 3H7C4.79 3 3 4.79 3 7V17C3 19.21 4.79 21 7 21H17C19.21 21 21 19.21 21 17V7C21 4.79 19.21 3 17 3Z" stroke="white" stroke-width="2"/>
-          <path d="M16 11.37C16.1234 12.2022 15.9812 13.0522 15.5937 13.799C15.2062 14.5458 14.5931 15.1514 13.8416 15.5298C13.0901 15.9081 12.2384 16.0395 11.4078 15.9057C10.5771 15.7719 9.80976 15.3799 9.21484 14.785C8.61991 14.19 8.22794 13.4227 8.09414 12.592C7.96034 11.7614 8.09171 10.9097 8.47005 10.1582C8.84839 9.40667 9.45404 8.79355 10.2008 8.40605C10.9476 8.01856 11.7976 7.87632 12.6298 7.9997C13.4787 8.12559 14.2649 8.52146 14.8728 9.12936C15.4807 9.73725 15.8766 10.5235 16.0025 11.3724Z" stroke="white" stroke-width="2"/>
-          <path d="M17.5 6.5H17.51" stroke="white" stroke-width="2"/>
+
+          <path
+            d="M17 3H7C4.79 3 3 4.79 3 7V17C3 19.21 4.79 21 7 21H17C19.21 21 21 19.21 21 17V7C21 4.79 19.21 3 17 3Z"
+            stroke="white"
+            stroke-width="2"
+          />
+
+          <path
+            d="M16 11.37C16.1234 12.2022 15.9812 13.0522 15.5937 13.799C15.2062 14.5458 14.5931 15.1514 13.8416 15.5298C13.0901 15.9081 12.2384 16.0395 11.4078 15.9057C10.5771 15.7719 9.80976 15.3799 9.21484 14.785C8.61991 14.19 8.22794 13.4227 8.09414 12.592C7.96034 11.7614 8.09171 10.9097 8.47005 10.1582C8.84839 9.40667 9.45404 8.79355 10.2008 8.40605C10.9476 8.01856 11.7976 7.87632 12.6298 7.9997C13.4787 8.12559 14.2649 8.52146 14.8728 9.12936C15.4807 9.73725 15.8766 10.5235 16.0025 11.3724Z"
+            stroke="white"
+            stroke-width="2"
+          />
+
+          <path
+            d="M17.5 6.5H17.51"
+            stroke="white"
+            stroke-width="2"
+          />
+
         </svg>
+
       </div>
 
       <div class="instagram-text">
@@ -995,6 +1441,7 @@ img{
 
     </a>
 
+
     <a
       href="https://www.instagram.com/fujimaki_shiho_coach?igsh=MW05YnNyNnZnaDRpZw%3D%3D&utm_source=qr"
       class="instagram-minimal-link"
@@ -1002,11 +1449,29 @@ img{
     >
 
       <div class="instagram-icon">
+
         <svg viewBox="0 0 24 24" fill="none">
-          <path d="M17 3H7C4.79 3 3 4.79 3 7V17C3 19.21 4.79 21 7 21H17C19.21 21 21 19.21 21 17V7C21 4.79 19.21 3 17 3Z" stroke="white" stroke-width="2"/>
-          <path d="M16 11.37C16.1234 12.2022 15.9812 13.0522 15.5937 13.799C15.2062 14.5458 14.5931 15.1514 13.8416 15.5298C13.0901 15.9081 12.2384 16.0395 11.4078 15.9057C10.5771 15.7719 9.80976 15.3799 9.21484 14.785C8.61991 14.19 8.22794 13.4227 8.09414 12.592C7.96034 11.7614 8.09171 10.9097 8.47005 10.1582C8.84839 9.40667 9.45404 8.79355 10.2008 8.40605C10.9476 8.01856 11.7976 7.87632 12.6298 7.9997C13.4787 8.12559 14.2649 8.52146 14.8728 9.12936C15.4807 9.73725 15.8766 10.5235 16.0025 11.3724Z" stroke="white" stroke-width="2"/>
-          <path d="M17.5 6.5H17.51" stroke="white" stroke-width="2"/>
+
+          <path
+            d="M17 3H7C4.79 3 3 4.79 3 7V17C3 19.21 4.79 21 7 21H17C19.21 21 21 19.21 21 17V7C21 4.79 19.21 3 17 3Z"
+            stroke="white"
+            stroke-width="2"
+          />
+
+          <path
+            d="M16 11.37C16.1234 12.2022 15.9812 13.0522 15.5937 13.799C15.2062 14.5458 14.5931 15.1514 13.8416 15.5298C13.0901 15.9081 12.2384 16.0395 11.4078 15.9057C10.5771 15.7719 9.80976 15.3799 9.21484 9.21484"
+            stroke="white"
+            stroke-width="2"
+          />
+
+          <path
+            d="M17.5 6.5H17.51"
+            stroke="white"
+            stroke-width="2"
+          />
+
         </svg>
+
       </div>
 
       <div class="instagram-text">
@@ -1015,9 +1480,15 @@ img{
 
     </a>
 
+
   </div>
 
 </section>
+
+
+<!-- =========================
+     FINAL
+========================= -->
 
 <section class="final-section">
 
@@ -1053,6 +1524,11 @@ img{
 
 </section>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer class="footer">
 
   <div class="footer-brand">
@@ -1060,19 +1536,26 @@ img{
   </div>
 
   <div class="footer-copy handwritten-copy">
+
     サッカーで、<br>
     サッカー以上の<br>
     価値を。
-    
+
   </div>
 
 </footer>
+
+
+<!-- =========================
+     SCRIPT
+========================= -->
 
 <script>
 
 const menuBtn = document.getElementById('menuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 const mobileClose = document.getElementById('mobileClose');
+
 
 menuBtn.addEventListener('click', function(){
 
@@ -1081,6 +1564,7 @@ menuBtn.addEventListener('click', function(){
 
 });
 
+
 mobileClose.addEventListener('click', () => {
 
   menuBtn.classList.remove('active');
@@ -1088,7 +1572,9 @@ mobileClose.addEventListener('click', () => {
 
 });
 
+
 const menuLinks = mobileMenu.querySelectorAll('a');
+
 
 menuLinks.forEach(link => {
 
@@ -1101,7 +1587,25 @@ menuLinks.forEach(link => {
 
 });
 
+
+/* =========================
+   COLOR ACCORDION
+========================= */
+
+const colorToggles = document.querySelectorAll('.color-toggle');
+
+colorToggles.forEach(toggle => {
+
+  toggle.addEventListener('click', () => {
+
+    toggle.closest('.color-item').classList.toggle('active');
+
+  });
+
+});
+
 </script>
+
 
 </body>
 </html>
