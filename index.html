@@ -21,12 +21,10 @@
   --red:#d4001c;
   --red-light:#ff2747;
   --navy:#071120;
-  --navy-light:#0d1c31;
+  --blue:#2d63d3;
   --indigo:#4b5fa7;
   --white:#fff;
   --black:#020202;
-  --gray:#9aa0aa;
-  --line:rgba(255,255,255,.12);
 }
 
 
@@ -51,17 +49,9 @@ body{
   overflow-x:hidden;
 }
 
-body.menu-open{
-  overflow:hidden;
-}
-
 a{
   text-decoration:none;
   color:inherit;
-}
-
-button{
-  font-family:inherit;
 }
 
 img{
@@ -69,10 +59,9 @@ img{
   display:block;
 }
 
-
-/* =========================================================
-   SCROLLBAR
-========================================================= */
+button{
+  font-family:inherit;
+}
 
 ::-webkit-scrollbar{
   width:8px;
@@ -83,17 +72,40 @@ img{
 }
 
 ::-webkit-scrollbar-thumb{
-  background:linear-gradient(
-    180deg,
-    var(--red-light),
-    var(--indigo)
-  );
+  background:linear-gradient(180deg,#ff2747,#2d63d3);
   border-radius:999px;
 }
 
 
 /* =========================================================
-   HEADER
+   GLOBAL TITLE SYSTEM
+========================================================= */
+
+/*
+  タイトルの意図した改行を保持するための設定。
+  各行を span.title-line で囲む。
+*/
+
+.title-line{
+  display:block;
+  white-space:nowrap;
+}
+
+.section-title,
+.course-title,
+.final-title,
+.philosophy-main-title,
+.course-select-title,
+.development-title,
+.results-title,
+.commitment-title,
+.join-title{
+  font-weight:900;
+}
+
+
+/* =========================================================
+   NAV
 ========================================================= */
 
 .nav{
@@ -107,13 +119,12 @@ img{
   align-items:center;
   justify-content:space-between;
 
-  padding:18px 28px;
+  padding:18px 24px;
 
   background:rgba(0,0,0,.58);
   backdrop-filter:blur(18px);
-  -webkit-backdrop-filter:blur(18px);
 
-  border-bottom:1px solid rgba(255,255,255,.07);
+  border-bottom:1px solid rgba(255,255,255,.06);
 }
 
 .logo-wrap{
@@ -124,93 +135,22 @@ img{
 
 .logo{
   font-family:'Bebas Neue',sans-serif;
-  font-size:38px;
-  line-height:1;
+  font-size:44px;
   letter-spacing:2px;
+  color:#fff;
 }
 
 .header-emblem{
-  width:34px;
-  height:34px;
+  width:38px;
+  height:38px;
   object-fit:contain;
 }
 
-
-/* =========================================================
-   DESKTOP NAV
-========================================================= */
-
-.desktop-nav{
-  display:flex;
-  align-items:center;
-  gap:26px;
-}
-
-.desktop-nav a{
-  position:relative;
-
-  font-family:'Bebas Neue',sans-serif;
-  font-size:17px;
-  letter-spacing:1.5px;
-
-  color:#fff;
-  opacity:.9;
-
-  transition:.3s ease;
-}
-
-.desktop-nav a::after{
-  content:"";
-
-  position:absolute;
-  left:0;
-  bottom:-7px;
-
-  width:0;
-  height:2px;
-
-  background:var(--red);
-
-  transition:.3s ease;
-}
-
-.desktop-nav a:hover{
-  opacity:1;
-}
-
-.desktop-nav a:hover::after{
-  width:100%;
-}
-
-.desktop-nav .nav-join{
-  padding:9px 15px;
-
-  background:var(--red);
-
-  opacity:1;
-}
-
-.desktop-nav .nav-join::after{
-  display:none;
-}
-
-.desktop-nav .nav-join:hover{
-  background:var(--red-light);
-}
-
-
-/* =========================================================
-   MOBILE MENU BUTTON
-========================================================= */
-
 .menu{
-  display:none;
-
+  display:flex;
   flex-direction:column;
   gap:6px;
-
   cursor:pointer;
-
   z-index:10002;
 }
 
@@ -218,7 +158,6 @@ img{
   width:30px;
   height:2px;
   background:#fff;
-
   transition:.35s ease;
 }
 
@@ -244,7 +183,7 @@ img{
   top:0;
   right:-100%;
 
-  width:min(88%,460px);
+  width:min(84%,420px);
   height:100vh;
 
   background:
@@ -260,7 +199,7 @@ img{
   flex-direction:column;
   justify-content:center;
 
-  padding:50px;
+  padding:44px;
 
   transition:.5s ease;
 }
@@ -272,9 +211,9 @@ img{
 .mobile-close{
   position:absolute;
   top:28px;
-  right:28px;
+  right:24px;
 
-  font-size:11px;
+  font-size:12px;
   letter-spacing:3px;
   font-weight:800;
 
@@ -283,81 +222,116 @@ img{
 
 .mobile-menu a{
   font-family:'Bebas Neue',sans-serif;
-
-  font-size:36px;
+  font-size:34px;
   line-height:1;
-
-  margin:13px 0;
+  margin:14px 0;
 }
 
 .mobile-menu a span{
   display:block;
+  margin-top:10px;
 
-  margin-top:8px;
-
+  font-size:12px;
+  letter-spacing:3px;
   font-family:'Noto Sans JP',sans-serif;
-  font-size:11px;
-  letter-spacing:2px;
 
-  color:rgba(255,255,255,.65);
+  opacity:.75;
 }
 
 
 /* =========================================================
-   COMMON
+   HERO
 ========================================================= */
 
-.section{
+.hero-section{
   position:relative;
-  padding:150px 24px;
+  min-height:100vh;
+  overflow:hidden;
 }
 
-.section-inner{
-  width:100%;
-  max-width:1180px;
-  margin:0 auto;
+.hero-bg{
+  position:absolute;
+  inset:0;
+
+  background-image:url(
+    'https://yatsuhashi-sc.com/_p/acre/7432/images/pc/fccbf9cf.JPG'
+  );
+
+  background-size:cover;
+  background-position:68% center;
+
+  transform:scale(1.05);
 }
 
-.section-label{
-  margin-bottom:20px;
+.hero-overlay{
+  position:absolute;
+  inset:0;
 
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:4px;
-
-  color:rgba(255,255,255,.7);
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,.18),
+      rgba(0,0,0,.9)
+    ),
+    linear-gradient(
+      to right,
+      rgba(0,0,0,.8),
+      rgba(0,0,0,.12)
+    );
 }
 
-.section-title{
+.hero-inner{
+  position:relative;
+  z-index:5;
+
+  min-height:100vh;
+
+  display:flex;
+  align-items:flex-end;
+
+  padding:140px 24px 90px;
+}
+
+.hero-content{
+  max-width:520px;
+}
+
+.hero-title{
+  font-family:'Bebas Neue',sans-serif;
+
+  font-size:clamp(78px,17vw,170px);
+  line-height:.82;
+
+  letter-spacing:-1px;
+
   margin-bottom:36px;
-
-  font-size:clamp(58px,9vw,118px);
-  line-height:.9;
-
-  font-weight:900;
-  letter-spacing:-3px;
 }
 
-.section-lead{
-  max-width:680px;
-
-  font-size:16px;
-  line-height:2.05;
-
-  color:rgba(255,255,255,.82);
-}
-
-.red{
+.hero-title span{
   color:var(--red);
+
+  text-shadow:
+    0 0 40px rgba(212,0,28,.65);
 }
 
-.muted{
-  color:rgba(255,255,255,.55);
+.hero-copy{
+  font-size:30px;
+  font-weight:900;
+  line-height:1.12;
+
+  margin-bottom:28px;
+}
+
+.hero-text{
+  font-size:15px;
+  line-height:2;
+
+  margin-bottom:46px;
 }
 
 
 /* =========================================================
-   CTA
+   CTA BUTTON
 ========================================================= */
 
 .cta-btn{
@@ -367,16 +341,15 @@ img{
   align-items:center;
   justify-content:space-between;
 
-  gap:45px;
+  gap:34px;
 
   min-width:250px;
 
-  padding:16px 18px 16px 20px;
+  padding:15px 18px 15px 20px;
 
   background:#050505;
 
   border:1px solid rgba(255,255,255,.28);
-
   border-radius:2px;
 
   color:#fff;
@@ -412,7 +385,8 @@ img{
   z-index:2;
 
   font-family:'Bebas Neue',sans-serif;
-  font-size:25px;
+  font-size:24px;
+  line-height:1;
 
   transition:.35s ease;
 }
@@ -440,137 +414,154 @@ img{
 
 
 /* =========================================================
-   HERO
+   COMMON
 ========================================================= */
 
-.hero-section{
-  position:relative;
-
-  min-height:100svh;
-
-  overflow:hidden;
-}
-
-.hero-bg{
-  position:absolute;
-  inset:0;
-
-  background-image:
-    url('https://yatsuhashi-sc.com/_p/acre/7432/images/pc/fccbf9cf.JPG');
-
-  background-size:cover;
-  background-position:68% center;
-
-  transform:scale(1.04);
-}
-
-.hero-overlay{
-  position:absolute;
-  inset:0;
-
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(0,0,0,.15),
-      rgba(0,0,0,.9)
-    ),
-    linear-gradient(
-      to right,
-      rgba(0,0,0,.82),
-      rgba(0,0,0,.12)
-    );
-}
-
-.hero-inner{
-  position:relative;
-  z-index:5;
-
-  min-height:100svh;
-
-  display:flex;
-  align-items:flex-end;
-
-  padding:
-    150px
-    7vw
-    80px;
-}
-
-.hero-content{
-  width:100%;
-  max-width:760px;
-}
-
-.hero-eyebrow{
-  margin-bottom:20px;
+.section-label{
+  color:#fff;
 
   font-size:12px;
+  letter-spacing:3px;
   font-weight:800;
-  letter-spacing:4px;
 
-  color:rgba(255,255,255,.72);
+  margin-bottom:24px;
 }
 
-.hero-title{
-  font-family:'Bebas Neue',sans-serif;
+.section-text,
+.course-text,
+.final-text{
+  color:#fff;
 
-  font-size:clamp(82px,13vw,190px);
+  line-height:2.1;
+  font-size:15px;
+}
 
-  line-height:.8;
+.section-title{
+  margin-bottom:36px;
+
+  font-size:clamp(52px,7vw,92px);
+  line-height:.92;
 
   letter-spacing:-2px;
 
-  margin-bottom:42px;
+  max-width:950px;
 }
 
-.hero-title span{
-  color:var(--red);
+.philosophy-main-title{
+  margin-bottom:36px;
 
-  text-shadow:
-    0 0 40px rgba(212,0,28,.55);
+  font-size:clamp(54px,7.5vw,100px);
+  line-height:.9;
+
+  letter-spacing:-3px;
+
+  max-width:950px;
 }
 
-.hero-copy{
-  margin-bottom:25px;
+.course-select-title{
+  margin-bottom:36px;
 
-  font-size:clamp(27px,3vw,42px);
-  font-weight:900;
+  font-size:clamp(54px,7vw,96px);
+  line-height:.9;
 
-  line-height:1.1;
+  letter-spacing:-3px;
+
+  max-width:950px;
 }
 
-.hero-text{
-  margin-bottom:35px;
+.course-title{
+  margin-bottom:38px;
 
-  max-width:480px;
+  font-size:clamp(54px,7vw,96px);
+  line-height:.9;
 
-  font-size:15px;
-  line-height:1.95;
+  letter-spacing:-3px;
 
-  color:rgba(255,255,255,.84);
+  max-width:950px;
 }
 
-.hero-bottom{
-  display:flex;
-  align-items:center;
-  gap:28px;
-  flex-wrap:wrap;
+.development-title{
+  margin-bottom:36px;
+
+  font-size:clamp(54px,7vw,96px);
+  line-height:.9;
+
+  letter-spacing:-3px;
+
+  max-width:950px;
 }
 
-.hero-location{
-  font-size:11px;
-  line-height:1.7;
-  letter-spacing:1px;
+.results-title{
+  margin-bottom:36px;
 
-  color:rgba(255,255,255,.62);
+  font-size:clamp(54px,7vw,96px);
+  line-height:.9;
+
+  letter-spacing:-3px;
+
+  max-width:950px;
+}
+
+.commitment-title{
+  margin-bottom:36px;
+
+  font-size:clamp(54px,7vw,96px);
+  line-height:.9;
+
+  letter-spacing:-3px;
+
+  max-width:950px;
+}
+
+.join-title{
+  margin-bottom:36px;
+
+  font-size:clamp(58px,7.5vw,105px);
+  line-height:.88;
+
+  letter-spacing:-3px;
+
+  max-width:950px;
+}
+
+.final-title{
+  margin-bottom:36px;
+
+  font-size:clamp(54px,7vw,96px);
+  line-height:.9;
+
+  letter-spacing:-3px;
+
+  max-width:950px;
 }
 
 
 /* =========================================================
-   INTRO
+   SECTION BASE
 ========================================================= */
 
-.intro-section{
+.philosophy-section,
+.about-section,
+.course-select-section,
+.development-section,
+.team-section,
+.academy-section,
+.school-section,
+.kids-section,
+.results-section,
+.commitment-section,
+.inside-section,
+.final-section,
+.join-section{
+  position:relative;
+  padding:140px 24px;
+}
+
+.about-section{
+  background:#000;
+}
+
+.philosophy-section{
   background:
     linear-gradient(
       180deg,
@@ -579,524 +570,17 @@ img{
     );
 }
 
-.intro-grid{
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:100px;
-  align-items:end;
-}
-
-.intro-title{
-  font-size:clamp(52px,7vw,92px);
-  line-height:.95;
-  font-weight:900;
-  letter-spacing:-3px;
-}
-
-.intro-title span{
-  color:var(--red);
-}
-
-.intro-copy{
-  max-width:520px;
-
-  font-size:16px;
-  line-height:2.1;
-
-  color:rgba(255,255,255,.82);
-}
-
-.intro-points{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-
-  gap:1px;
-
-  margin-top:45px;
-
-  border-top:1px solid var(--line);
-  border-left:1px solid var(--line);
-}
-
-.intro-point{
-  padding:22px;
-
-  border-right:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-}
-
-.intro-point-number{
-  display:block;
-
-  margin-bottom:9px;
-
-  font-family:'Bebas Neue',sans-serif;
-  font-size:32px;
-
-  color:var(--red);
-}
-
-.intro-point-text{
-  font-size:13px;
-  line-height:1.7;
-  font-weight:700;
-}
-
-
-/* =========================================================
-   PHILOSOPHY
-========================================================= */
-
-.philosophy-section{
+.course-select-section{
   background:#020202;
 }
 
-.philosophy-header{
-  max-width:900px;
-  margin-bottom:80px;
-}
-
-.philosophy-main-title{
-  font-size:clamp(60px,10vw,135px);
-  line-height:.88;
-
-  font-weight:900;
-  letter-spacing:-5px;
-}
-
-.philosophy-main-title span{
-  color:var(--red);
-}
-
-.philosophy-values{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-
-  border-top:1px solid var(--line);
-  border-left:1px solid var(--line);
-}
-
-.philosophy-value{
-  min-height:220px;
-
-  padding:28px 22px;
-
-  border-right:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-
-  transition:.3s ease;
-}
-
-.philosophy-value:hover{
-  background:rgba(212,0,28,.08);
-}
-
-.value-number{
-  margin-bottom:50px;
-
-  font-family:'Bebas Neue',sans-serif;
-  font-size:28px;
-
-  color:var(--red);
-}
-
-.value-title{
-  margin-bottom:12px;
-
-  font-size:18px;
-  line-height:1.5;
-  font-weight:900;
-}
-
-.value-text{
-  font-size:12px;
-  line-height:1.9;
-
-  color:rgba(255,255,255,.58);
-}
-
-
-/* =========================================================
-   COLOR PHILOSOPHY
-========================================================= */
-
-.color-philosophy{
-  margin-top:100px;
-
-  display:grid;
-  grid-template-columns:.75fr 1.25fr;
-  gap:80px;
-}
-
-.color-intro-title{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:56px;
-  line-height:.95;
-}
-
-.color-intro-text{
-  margin-top:20px;
-
-  font-size:13px;
-  line-height:2;
-
-  color:rgba(255,255,255,.58);
-}
-
-.color-list{
-  border-top:1px solid var(--line);
-}
-
-.color-item{
-  border-bottom:1px solid var(--line);
-}
-
-.color-toggle{
-  width:100%;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  padding:24px 0;
-
-  background:none;
-  border:0;
-
-  color:#fff;
-
-  text-align:left;
-  cursor:pointer;
-}
-
-.color-toggle-main{
-  display:flex;
-  align-items:center;
-  gap:13px;
-
-  font-family:'Bebas Neue',sans-serif;
-  font-size:30px;
-  letter-spacing:2px;
-}
-
-.color-chip{
-  width:15px;
-  height:15px;
-
-  border-radius:50%;
-}
-
-.red-chip{
-  background:var(--red);
-}
-
-.indigo-chip{
-  background:var(--indigo);
-}
-
-.white-chip{
-  background:#fff;
-  border:1px solid rgba(255,255,255,.25);
-}
-
-.color-icon{
-  position:relative;
-
-  width:20px;
-  height:20px;
-}
-
-.color-icon::before,
-.color-icon::after{
-  content:"";
-
-  position:absolute;
-
-  top:50%;
-  left:50%;
-
-  width:13px;
-  height:1px;
-
-  background:#fff;
-
-  transform:translate(-50%,-50%);
-  transition:.3s ease;
-}
-
-.color-icon::after{
-  transform:
-    translate(-50%,-50%)
-    rotate(90deg);
-}
-
-.color-item.active .color-icon::after{
-  transform:
-    translate(-50%,-50%)
-    rotate(0);
-}
-
-.color-content{
-  display:grid;
-  grid-template-rows:0fr;
-
-  transition:grid-template-rows .4s ease;
-}
-
-.color-content-inner{
-  overflow:hidden;
-
-  padding:0;
-
-  opacity:0;
-
-  font-size:13px;
-  line-height:2;
-
-  color:rgba(255,255,255,.72);
-
-  transition:
-    opacity .3s ease,
-    padding .4s ease;
-}
-
-.color-item.active .color-content{
-  grid-template-rows:1fr;
-}
-
-.color-item.active .color-content-inner{
-  padding:0 0 25px;
-  opacity:1;
-}
-
-
-/* =========================================================
-   FULL IMAGE
-========================================================= */
-
-.full-image{
-  width:100vw;
-
-  margin-left:calc(50% - 50vw);
-
-  height:70vh;
-  min-height:480px;
-
-  margin-top:90px;
-  margin-bottom:80px;
-
-  position:relative;
-
-  background-size:cover;
-  background-position:center;
-}
-
-.full-image::after{
-  content:"";
-
-  position:absolute;
-  inset:0;
-
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(0,0,0,.05),
-      rgba(0,0,0,.35) 50%,
-      rgba(0,0,0,.95)
-    );
-}
-
-.philosophy-image{
-  background-image:
-    url('https://yatsuhashi-sc.com/_p/acre/7432/images/pc/03da3eaf.jpg');
-}
-
-
-/* =========================================================
-   COURSE SELECT
-========================================================= */
-
-.course-select-section{
+.development-section{
   background:
     linear-gradient(
       180deg,
-      #071120 0%,
-      #020202 100%
+      #020202 0%,
+      #071120 100%
     );
-}
-
-.course-select-header{
-  max-width:850px;
-  margin-bottom:70px;
-}
-
-.course-select-title{
-  font-size:clamp(58px,9vw,120px);
-  line-height:.88;
-
-  font-weight:900;
-  letter-spacing:-4px;
-}
-
-.course-select-title span{
-  color:var(--red);
-}
-
-.course-select-sub{
-  max-width:600px;
-
-  margin-top:30px;
-
-  font-size:15px;
-  line-height:2;
-
-  color:rgba(255,255,255,.65);
-}
-
-.course-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-
-  gap:1px;
-
-  background:rgba(255,255,255,.12);
-
-  border:1px solid rgba(255,255,255,.12);
-}
-
-.course-card{
-  position:relative;
-
-  min-height:390px;
-
-  display:flex;
-  flex-direction:column;
-
-  padding:30px 25px;
-
-  background:#050505;
-
-  overflow:hidden;
-
-  transition:.4s ease;
-}
-
-.course-card::before{
-  content:"";
-
-  position:absolute;
-  left:0;
-  bottom:0;
-
-  width:100%;
-  height:4px;
-
-  background:var(--red);
-
-  transform:scaleX(0);
-  transform-origin:left;
-
-  transition:.4s ease;
-}
-
-.course-card:hover{
-  background:#0a0a0a;
-  transform:translateY(-5px);
-}
-
-.course-card:hover::before{
-  transform:scaleX(1);
-}
-
-.course-card-number{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:22px;
-
-  color:var(--red);
-}
-
-.course-card-name{
-  margin-top:35px;
-
-  font-family:'Bebas Neue',sans-serif;
-  font-size:39px;
-  line-height:.95;
-
-  letter-spacing:1px;
-}
-
-.course-card-jp{
-  margin-top:10px;
-
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:1px;
-
-  color:rgba(255,255,255,.7);
-}
-
-.course-card-copy{
-  margin-top:30px;
-
-  font-size:13px;
-  line-height:1.9;
-
-  color:rgba(255,255,255,.7);
-}
-
-.course-card-info{
-  margin-top:auto;
-  padding-top:25px;
-
-  font-size:11px;
-  line-height:1.9;
-
-  color:rgba(255,255,255,.5);
-}
-
-.course-card-link{
-  display:inline-flex;
-
-  margin-top:20px;
-
-  font-family:'Bebas Neue',sans-serif;
-  font-size:18px;
-  letter-spacing:1px;
-
-  color:#fff;
-}
-
-.course-card-link::after{
-  content:"→";
-
-  margin-left:10px;
-
-  color:var(--red);
-
-  transition:.3s ease;
-}
-
-.course-card:hover .course-card-link::after{
-  transform:translateX(5px);
-}
-
-
-/* =========================================================
-   COURSE DETAIL COMMON
-========================================================= */
-
-.course-section{
-  position:relative;
-
-  padding:0 24px 150px;
-
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.course-inner{
-  width:100%;
-  max-width:1180px;
-  margin:0 auto;
 }
 
 .team-section{
@@ -1104,8 +588,10 @@ img{
     linear-gradient(
       180deg,
       #180008 0%,
-      #050505 100%
+      #070707 100%
     );
+
+  padding-top:0;
 }
 
 .academy-section{
@@ -1135,15 +621,73 @@ img{
     );
 }
 
-.course-image{
+.results-section{
+  background:
+    linear-gradient(
+      180deg,
+      #020202 0%,
+      #120005 100%
+    );
+}
+
+.commitment-section{
+  background:
+    linear-gradient(
+      180deg,
+      #050505 0%,
+      #071120 100%
+    );
+}
+
+.inside-section{
+  background:
+    linear-gradient(
+      180deg,
+      #071120 0%,
+      #020202 100%
+    );
+}
+
+.final-section{
+  overflow:hidden;
+  background:#000;
+}
+
+.join-section{
+  background:
+    linear-gradient(
+      180deg,
+      #000 0%,
+      #100006 100%
+    );
+}
+
+
+/* =========================================================
+   CONTENT WIDTH
+========================================================= */
+
+.content-inner{
+  width:100%;
+  max-width:1180px;
+  margin:0 auto;
+}
+
+
+/* =========================================================
+   FULL IMAGE
+========================================================= */
+
+.full-image{
   width:100vw;
 
   margin-left:calc(50% - 50vw);
 
-  height:75vh;
-  min-height:500px;
+  height:72vh;
+  min-height:460px;
 
-  margin-bottom:80px;
+  margin-top:0;
+  margin-bottom:70px;
 
   background-size:cover;
   background-position:center;
@@ -1151,7 +695,7 @@ img{
   position:relative;
 }
 
-.course-image::after{
+.full-image::after{
   content:"";
 
   position:absolute;
@@ -1161,78 +705,404 @@ img{
     linear-gradient(
       to bottom,
       rgba(0,0,0,.05),
-      rgba(0,0,0,.88)
+      rgba(0,0,0,.45) 50%,
+      rgba(0,0,0,.92)
     );
 }
 
+.philosophy-image{
+  background-image:url(
+    'https://yatsuhashi-sc.com/_p/acre/7432/images/pc/03da3eaf.jpg'
+  );
+}
+
 .team-image{
-  background-image:
-    url('https://yatsuhashi-sc.com/_p/acre/7432/images/pc/fccbf9cf.JPG');
+  background-image:url(
+    'https://yatsuhashi-sc.com/_p/acre/7432/images/pc/fccbf9cf.JPG'
+  );
 }
 
 .academy-image{
-  background-image:
-    url('https://yatsuhashi-sc.com/_p/acre/7432/images/pc/ac41edc9.jpg');
+  background-image:url(
+    'https://yatsuhashi-sc.com/_p/acre/7432/images/pc/ac41edc9.jpg'
+  );
 }
 
 .school-image{
-  background-image:
-    url('https://yatsuhashi-sc.com/_p/acre/7432/images/pc/e5b66d45.jpg');
+  background-image:url(
+    'https://yatsuhashi-sc.com/_p/acre/7432/images/pc/e5b66d45.jpg'
+  );
 }
 
 .kids-image{
-  background-image:
-    url('https://yatsuhashi-sc.com/_p/acre/7432/images/pc/5ba896a2.jpg');
+  background-image:url(
+    'https://yatsuhashi-sc.com/_p/acre/7432/images/pc/5ba896a2.jpg'
+  );
 }
 
-.course-name{
-  margin-bottom:20px;
+.results-image{
+  background-image:url(
+    'https://yatsuhashi-sc.com/_p/acre/7432/images/pc/c4924d63.jpg'
+  );
+}
 
-  font-size:13px;
+.commitment-image{
+  background-image:url(
+    'https://yatsuhashi-sc.com/_p/acre/7432/images/pc/170d395b.jpg'
+  );
+}
+
+.inside-image{
+  background-image:url(
+    'https://yatsuhashi-sc.com/_p/acre/7432/images/pc/0aa7a65c.jpg'
+  );
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-lead{
+  max-width:850px;
+
+  font-size:clamp(28px,4vw,52px);
+  line-height:1.35;
   font-weight:900;
 
-  letter-spacing:3px;
-
-  color:rgba(255,255,255,.65);
+  margin-bottom:50px;
 }
 
-.course-title{
-  max-width:900px;
-
-  margin-bottom:38px;
-
-  font-size:clamp(58px,9vw,120px);
-  line-height:.9;
-
-  font-weight:900;
-  letter-spacing:-4px;
-}
-
-.course-text{
-  max-width:670px;
+.about-body{
+  max-width:720px;
 
   font-size:15px;
-  line-height:2.15;
+  line-height:2.1;
+}
 
-  color:rgba(255,255,255,.82);
+.about-grid{
+  margin-top:70px;
+
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+
+  border-top:1px solid rgba(255,255,255,.12);
+}
+
+.about-item{
+  padding:28px 20px 28px 0;
+
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.about-item:nth-child(odd){
+  border-right:1px solid rgba(255,255,255,.12);
+}
+
+.about-item:nth-child(even){
+  padding-left:28px;
+}
+
+.about-number{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:48px;
+
+  color:var(--red);
+
+  margin-bottom:8px;
+}
+
+.about-item h3{
+  font-size:20px;
+  margin-bottom:10px;
+}
+
+.about-item p{
+  font-size:14px;
+  line-height:1.9;
+  opacity:.8;
+}
+
+
+/* =========================================================
+   PHILOSOPHY
+========================================================= */
+
+.color-accordion{
+  margin-top:50px;
+
+  border-top:1px solid rgba(255,255,255,.12);
+}
+
+.color-item{
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.color-toggle{
+  width:100%;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:22px 0;
+
+  background:none;
+  border:0;
+
+  color:#fff;
+  text-align:left;
+
+  cursor:pointer;
+}
+
+.color-toggle-main{
+  display:flex;
+  align-items:center;
+
+  gap:12px;
+
+  font-family:'Bebas Neue',sans-serif;
+
+  font-size:32px;
+  letter-spacing:2px;
+}
+
+.color-chip{
+  width:16px;
+  height:16px;
+
+  border-radius:50%;
+
+  display:block;
+}
+
+.red-chip{
+  background:#d4001c;
+}
+
+.indigo-chip{
+  background:#4b5fa7;
+}
+
+.white-chip{
+  background:#fff;
+  border:1px solid rgba(255,255,255,.25);
+}
+
+.color-toggle-icon{
+  width:24px;
+  height:24px;
+
+  position:relative;
+  flex-shrink:0;
+}
+
+.color-toggle-icon::before,
+.color-toggle-icon::after{
+  content:"";
+
+  position:absolute;
+
+  top:50%;
+  left:50%;
+
+  width:14px;
+  height:1px;
+
+  background:#fff;
+
+  transform:translate(-50%,-50%);
+
+  transition:.3s ease;
+}
+
+.color-toggle-icon::after{
+  transform:
+    translate(-50%,-50%)
+    rotate(90deg);
+}
+
+.color-item.active .color-toggle-icon::after{
+  transform:
+    translate(-50%,-50%)
+    rotate(0);
+}
+
+.color-content{
+  display:grid;
+
+  grid-template-rows:0fr;
+
+  transition:grid-template-rows .4s ease;
+}
+
+.color-content-inner{
+  overflow:hidden;
+
+  color:#fff;
+
+  line-height:2;
+  font-size:14px;
+
+  padding:0;
+
+  opacity:0;
+
+  transition:
+    opacity .3s ease,
+    padding .4s ease;
+}
+
+.color-item.active .color-content{
+  grid-template-rows:1fr;
+}
+
+.color-item.active .color-content-inner{
+  padding:0 0 24px;
+  opacity:1;
+}
+
+
+/* =========================================================
+   COURSE SELECT
+========================================================= */
+
+.course-select-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:2px;
+
+  margin-top:70px;
+}
+
+.course-select-card{
+  position:relative;
+
+  min-height:360px;
+
+  padding:34px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+
+  overflow:hidden;
+
+  background:#111;
+
+  border:1px solid rgba(255,255,255,.06);
+
+  transition:.4s ease;
+}
+
+.course-select-card::before{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,0,0,.92),
+      rgba(0,0,0,.12)
+    );
+
+  z-index:1;
+}
+
+.course-select-card img{
+  position:absolute;
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  transition:.5s ease;
+}
+
+.course-select-card:hover img{
+  transform:scale(1.05);
+}
+
+.course-select-content{
+  position:relative;
+  z-index:2;
+}
+
+.course-select-number{
+  font-family:'Bebas Neue',sans-serif;
+
+  font-size:22px;
+  color:var(--red);
+
+  letter-spacing:2px;
+
+  margin-bottom:10px;
+}
+
+.course-select-card h3{
+  font-family:'Bebas Neue',sans-serif;
+
+  font-size:48px;
+  line-height:.9;
+
+  letter-spacing:1px;
+
+  margin-bottom:12px;
+}
+
+.course-select-card p{
+  font-size:13px;
+  line-height:1.8;
+
+  opacity:.85;
+}
+
+.course-select-arrow{
+  margin-top:24px;
+
+  font-family:'Bebas Neue',sans-serif;
+
+  font-size:28px;
+}
+
+
+/* =========================================================
+   COURSE DETAILS
+========================================================= */
+
+.course-name{
+  color:#fff;
+
+  font-size:18px;
+  letter-spacing:4px;
+  font-weight:900;
+
+  margin-bottom:28px;
+
+  line-height:1.6;
 }
 
 .info-text{
-  margin-top:35px;
+  margin-top:34px;
 
-  font-size:13px;
+  color:#fff;
+
   line-height:2;
-
-  font-weight:800;
-
-  color:rgba(255,255,255,.65);
+  font-size:14px;
+  font-weight:700;
 }
 
 .course-divider{
-  width:100%;
   height:1px;
-
-  margin-top:80px;
+  width:100%;
 
   background:
     linear-gradient(
@@ -1245,70 +1115,57 @@ img{
 
 
 /* =========================================================
-   PLAYER DEVELOPMENT
+   DEVELOPMENT
 ========================================================= */
 
-.development-section{
-  background:#020202;
-}
-
-.development-header{
-  max-width:900px;
-  margin-bottom:75px;
-}
-
-.development-title{
-  font-size:clamp(58px,9vw,120px);
-  line-height:.88;
-
-  font-weight:900;
-  letter-spacing:-4px;
-}
-
-.development-title span{
-  color:var(--red);
-}
-
 .development-grid{
+  margin-top:70px;
+
   display:grid;
-  grid-template-columns:repeat(3,1fr);
 
-  gap:1px;
+  grid-template-columns:
+    repeat(2,1fr);
 
-  background:rgba(255,255,255,.1);
-
-  border:1px solid rgba(255,255,255,.1);
+  border-top:1px solid rgba(255,255,255,.12);
 }
 
 .development-item{
-  min-height:240px;
+  padding:34px 30px 34px 0;
 
-  padding:30px;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
 
-  background:#050505;
+.development-item:nth-child(odd){
+  border-right:1px solid rgba(255,255,255,.12);
+}
+
+.development-item:nth-child(even){
+  padding-left:30px;
 }
 
 .development-number{
   font-family:'Bebas Neue',sans-serif;
-  font-size:38px;
 
   color:var(--red);
+
+  font-size:52px;
+  line-height:1;
+
+  margin-bottom:16px;
 }
 
-.development-name{
-  margin-top:45px;
+.development-item h3{
+  font-size:20px;
+  line-height:1.5;
 
-  font-size:19px;
-  font-weight:900;
+  margin-bottom:10px;
 }
 
-.development-text{
-  margin-top:13px;
-
-  font-size:12px;
+.development-item p{
+  font-size:14px;
   line-height:1.9;
 
-  color:rgba(255,255,255,.55);
+  opacity:.75;
 }
 
 
@@ -1316,89 +1173,52 @@ img{
    RESULTS
 ========================================================= */
 
-.results-section{
-  background:
-    linear-gradient(
-      180deg,
-      #020202 0%,
-      #120005 100%
-    );
-}
-
-.results-image{
-  background-image:
-    url('https://yatsuhashi-sc.com/_p/acre/7432/images/pc/c4924d63.jpg');
-}
-
-.results-header{
-  max-width:850px;
-  margin-bottom:70px;
-}
-
-.results-title{
-  font-size:clamp(58px,9vw,120px);
-  line-height:.88;
-
-  font-weight:900;
-  letter-spacing:-4px;
-}
-
-.results-title span{
-  color:var(--red);
-}
-
-.results-copy{
-  max-width:650px;
-
-  margin-top:30px;
-
-  font-size:15px;
-  line-height:2;
-
-  color:rgba(255,255,255,.72);
-}
-
 .results-grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
 
-  gap:1px;
+  grid-template-columns:
+    repeat(2,1fr);
 
-  background:rgba(255,255,255,.1);
+  gap:2px;
 
-  border:1px solid rgba(255,255,255,.1);
+  margin-top:60px;
 }
 
-.result-item{
-  padding:30px 22px;
+.result-card{
+  padding:34px;
 
-  background:#050505;
+  min-height:230px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(212,0,28,.14),
+      rgba(7,17,32,.9)
+    );
+
+  border:1px solid rgba(255,255,255,.06);
 }
 
-.result-place{
+.result-card .number{
   font-family:'Bebas Neue',sans-serif;
-  font-size:52px;
-  line-height:.9;
 
-  color:#fff;
+  font-size:58px;
+  line-height:1;
+
+  color:var(--red);
+
+  margin-bottom:16px;
 }
 
-.result-event{
-  margin-top:15px;
-
-  font-size:11px;
-  line-height:1.7;
-
-  color:rgba(255,255,255,.55);
+.result-card h3{
+  font-size:19px;
+  margin-bottom:10px;
 }
 
-.result-note{
-  margin-top:55px;
-
+.result-card p{
   font-size:13px;
-  line-height:2;
-
-  color:rgba(255,255,255,.62);
+  line-height:1.8;
+  opacity:.75;
 }
 
 
@@ -1406,74 +1226,43 @@ img{
    COMMITMENT
 ========================================================= */
 
-.commitment-section{
-  background:
-    linear-gradient(
-      180deg,
-      #050505 0%,
-      #071120 100%
-    );
-}
-
-.commitment-image{
-  background-image:
-    url('https://yatsuhashi-sc.com/_p/acre/7432/images/pc/170d395b.jpg');
-}
-
-.commitment-header{
-  max-width:850px;
-}
-
-.commitment-title{
-  font-size:clamp(58px,9vw,120px);
-  line-height:.88;
-
-  font-weight:900;
-  letter-spacing:-4px;
-}
-
-.commitment-title span{
-  color:var(--red);
-}
-
-.commitment-copy{
-  max-width:700px;
-
-  margin-top:40px;
-
-  font-size:15px;
-  line-height:2.2;
-
-  color:rgba(255,255,255,.8);
-}
-
 .commitment-list{
-  max-width:850px;
+  margin-top:60px;
 
-  margin-top:65px;
-
-  border-top:1px solid var(--line);
+  border-top:1px solid rgba(255,255,255,.12);
 }
 
 .commitment-item{
   display:grid;
-  grid-template-columns:80px 1fr;
 
-  padding:23px 0;
+  grid-template-columns:90px 1fr;
 
-  border-bottom:1px solid var(--line);
+  gap:20px;
+
+  padding:26px 0;
+
+  border-bottom:1px solid rgba(255,255,255,.12);
 }
 
-.commitment-item-number{
+.commitment-number{
   font-family:'Bebas Neue',sans-serif;
-  font-size:25px;
+
+  font-size:48px;
 
   color:var(--red);
 }
 
-.commitment-item-text{
-  font-size:17px;
-  font-weight:800;
+.commitment-item h3{
+  font-size:19px;
+
+  margin-bottom:8px;
+}
+
+.commitment-item p{
+  font-size:14px;
+  line-height:1.9;
+
+  opacity:.75;
 }
 
 
@@ -1481,40 +1270,13 @@ img{
    INSIDE
 ========================================================= */
 
-.inside-section{
-  background:
-    linear-gradient(
-      180deg,
-      #071120 0%,
-      #020202 100%
-    );
-}
-
-.inside-image{
-  background-image:
-    url('https://yatsuhashi-sc.com/_p/acre/7432/images/pc/0aa7a65c.jpg');
-}
-
-.inside-title{
-  font-family:'Bebas Neue',sans-serif;
-
-  font-size:clamp(72px,12vw,155px);
-  line-height:.8;
-
-  letter-spacing:-2px;
-}
-
 .instagram-minimal{
-  margin-top:65px;
+  margin-top:48px;
 
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
+  display:flex;
+  flex-direction:column;
 
-  gap:1px;
-
-  background:rgba(255,255,255,.1);
-
-  border:1px solid rgba(255,255,255,.1);
+  gap:18px;
 }
 
 .instagram-minimal-link{
@@ -1523,20 +1285,21 @@ img{
 
   gap:18px;
 
-  padding:28px;
+  padding:20px 0;
 
-  background:#050505;
+  border-bottom:1px solid rgba(255,255,255,.08);
 
   transition:.3s ease;
 }
 
 .instagram-minimal-link:hover{
-  background:#0c0c0c;
+  opacity:.7;
 }
 
 .instagram-icon{
-  width:28px;
-  height:28px;
+  width:26px;
+  height:26px;
+
   flex-shrink:0;
 }
 
@@ -1546,9 +1309,9 @@ img{
 }
 
 .instagram-text{
-  font-size:14px;
-  font-weight:800;
+  font-size:15px;
   letter-spacing:2px;
+  font-weight:800;
 }
 
 
@@ -1556,27 +1319,19 @@ img{
    FINAL
 ========================================================= */
 
-.final-section{
-  position:relative;
-
-  overflow:hidden;
-
-  padding:180px 24px;
-
-  background:#000;
-}
-
 .final-bg{
   position:absolute;
   inset:0;
 
-  background:
+  background-image:
     linear-gradient(
       to bottom,
-      rgba(0,0,0,.38),
-      rgba(0,0,0,.93)
+      rgba(0,0,0,.45),
+      rgba(0,0,0,.92)
     ),
-    url('https://yatsuhashi-sc.com/_p/acre/7432/images/pc/f21fd49f.jpeg');
+    url(
+      'https://yatsuhashi-sc.com/_p/acre/7432/images/pc/f21fd49f.jpeg'
+    );
 
   background-size:cover;
   background-position:center;
@@ -1585,37 +1340,6 @@ img{
 .final-inner{
   position:relative;
   z-index:3;
-
-  width:100%;
-  max-width:1180px;
-
-  margin:0 auto;
-}
-
-.final-title{
-  max-width:950px;
-
-  font-size:clamp(60px,9vw,125px);
-  line-height:.88;
-
-  font-weight:900;
-
-  letter-spacing:-4px;
-}
-
-.final-title span{
-  color:var(--red);
-}
-
-.final-text{
-  max-width:650px;
-
-  margin-top:45px;
-
-  font-size:16px;
-  line-height:2.15;
-
-  color:rgba(255,255,255,.82);
 }
 
 
@@ -1623,95 +1347,66 @@ img{
    JOIN
 ========================================================= */
 
-.join-section{
-  background:
-    linear-gradient(
-      180deg,
-      #000 0%,
-      #180008 100%
-    );
-}
-
-.join-header{
-  max-width:800px;
-  margin-bottom:65px;
-}
-
-.join-title{
-  font-size:clamp(65px,10vw,135px);
-  line-height:.85;
-
-  font-weight:900;
-
-  letter-spacing:-5px;
-}
-
-.join-title span{
-  color:var(--red);
-}
-
-.join-copy{
-  max-width:600px;
-
-  margin-top:30px;
-
-  font-size:15px;
-  line-height:2;
-
-  color:rgba(255,255,255,.7);
-}
-
 .join-grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
 
-  gap:12px;
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:2px;
+
+  margin-top:60px;
 }
 
 .join-card{
-  padding:30px 25px;
+  padding:34px;
 
   background:
     linear-gradient(
       180deg,
-      rgba(212,0,28,.16),
-      rgba(7,17,32,.9)
+      rgba(212,0,28,.14),
+      rgba(7,17,32,.95)
     );
 
-  border:1px solid rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.06);
+
+  transition:.35s ease;
 }
 
-.join-card-name{
+.join-card:hover{
+  transform:translateY(-4px);
+
+  border-color:
+    rgba(212,0,28,.35);
+}
+
+.join-card-number{
   font-family:'Bebas Neue',sans-serif;
-  font-size:30px;
-}
 
-.join-card-text{
-  margin-top:12px;
-
-  font-size:12px;
-  line-height:1.8;
-
-  color:rgba(255,255,255,.58);
-}
-
-.join-card a{
-  display:inline-flex;
-
-  margin-top:25px;
-
-  font-size:12px;
-  font-weight:900;
-
-  letter-spacing:1px;
-}
-
-.join-card a::after{
-  content:"→";
-
-  margin-left:8px;
-
+  font-size:20px;
   color:var(--red);
+
+  letter-spacing:2px;
+
+  margin-bottom:10px;
+}
+
+.join-card h3{
+  font-family:'Bebas Neue',sans-serif;
+
+  font-size:42px;
+  line-height:.95;
+
+  margin-bottom:12px;
+}
+
+.join-card p{
+  font-size:14px;
+  line-height:1.9;
+
+  opacity:.78;
+
+  margin-bottom:26px;
 }
 
 
@@ -1720,72 +1415,85 @@ img{
 ========================================================= */
 
 .footer{
-  padding:130px 24px 80px;
+  padding:140px 24px 90px;
 
   text-align:center;
 
-  background:#000;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0),
+      rgba(0,0,0,.82) 18%,
+      #000 100%
+    );
 }
 
 .footer-brand{
   font-family:'Bebas Neue',sans-serif;
 
-  font-size:clamp(70px,14vw,180px);
+  font-size:clamp(62px,13vw,160px);
 
-  line-height:.8;
+  opacity:.25;
+
+  margin-bottom:28px;
+
+  color:#fff;
 
   letter-spacing:3px;
-
-  opacity:.23;
-
-  margin-bottom:45px;
 }
 
 .footer-copy{
-  font-size:28px;
-  line-height:1.35;
+  font-size:clamp(30px,5vw,58px);
+
+  line-height:1.3;
 
   font-weight:900;
 }
 
-.footer-small{
-  margin-top:35px;
-
-  font-size:10px;
-  letter-spacing:2px;
-
-  color:rgba(255,255,255,.35);
-}
-
 
 /* =========================================================
-   RESPONSIVE
+   DESKTOP
 ========================================================= */
 
-@media(max-width:1100px){
+@media(min-width:768px){
 
-  .desktop-nav{
-    gap:17px;
+  .hero-inner{
+    padding:
+      140px
+      8vw
+      90px;
   }
 
-  .desktop-nav a{
-    font-size:15px;
+  .philosophy-section,
+  .about-section,
+  .course-select-section,
+  .development-section,
+  .team-section,
+  .academy-section,
+  .school-section,
+  .kids-section,
+  .results-section,
+  .commitment-section,
+  .inside-section,
+  .final-section,
+  .join-section{
+    padding-left:8vw;
+    padding-right:8vw;
+
+    padding-top:180px;
+    padding-bottom:180px;
   }
 
-  .course-grid{
-    grid-template-columns:repeat(2,1fr);
+  .team-section{
+    padding-top:0;
   }
 
-  .join-grid{
-    grid-template-columns:repeat(2,1fr);
+  .full-image{
+    height:88vh;
   }
 
-  .philosophy-values{
-    grid-template-columns:repeat(3,1fr);
-  }
-
-  .results-grid{
-    grid-template-columns:repeat(2,1fr);
+  .course-name{
+    font-size:22px;
   }
 
 }
@@ -1795,224 +1503,353 @@ img{
    TABLET
 ========================================================= */
 
+@media(max-width:900px){
+
+  .course-select-grid,
+  .development-grid,
+  .results-grid,
+  .join-grid{
+    grid-template-columns:1fr;
+  }
+
+  .about-grid{
+    grid-template-columns:1fr;
+  }
+
+  .about-item:nth-child(odd){
+    border-right:0;
+  }
+
+  .about-item:nth-child(even){
+    padding-left:0;
+  }
+
+  .development-item:nth-child(odd){
+    border-right:0;
+  }
+
+  .development-item:nth-child(even){
+    padding-left:0;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
 @media(max-width:767px){
 
   .nav{
-    padding:17px 20px;
+    padding:16px 18px;
   }
 
   .logo{
-    font-size:34px;
+    font-size:38px;
   }
 
   .header-emblem{
-    width:31px;
-    height:31px;
+    width:32px;
+    height:32px;
   }
-
-  .desktop-nav{
-    display:none;
-  }
-
-  .menu{
-    display:flex;
-  }
-
-  .section{
-    padding:110px 20px;
-  }
-
-  .section-title{
-    letter-spacing:-2px;
-  }
-
-
-  /* HERO */
 
   .hero-inner{
     padding:
-      125px
+      130px
       20px
-      55px;
+      60px;
   }
 
-  .hero-bg{
-    background-position:
-      63%
-      center;
+  .hero-content{
+    max-width:100%;
   }
 
   .hero-title{
-    font-size:clamp(72px,22vw,125px);
+    font-size:clamp(70px,21vw,120px);
 
-    margin-bottom:35px;
+    letter-spacing:-1px;
+
+    margin-bottom:28px;
   }
 
   .hero-copy{
-    font-size:28px;
+    font-size:25px;
   }
 
   .hero-text{
     font-size:14px;
+    line-height:1.9;
+
+    margin-bottom:34px;
   }
 
-  .hero-bottom{
-    align-items:flex-start;
-    flex-direction:column;
-    gap:18px;
+  .philosophy-section,
+  .about-section,
+  .course-select-section,
+  .development-section,
+  .academy-section,
+  .school-section,
+  .kids-section,
+  .results-section,
+  .commitment-section,
+  .inside-section,
+  .final-section,
+  .join-section{
+    padding:
+      100px
+      20px;
   }
 
-
-  /* INTRO */
-
-  .intro-grid{
-    grid-template-columns:1fr;
-    gap:50px;
-  }
-
-  .intro-title{
-    font-size:58px;
-  }
-
-  .intro-copy{
-    font-size:14px;
-  }
-
-  .intro-points{
-    grid-template-columns:1fr 1fr;
-  }
-
-
-  /* PHILOSOPHY */
-
-  .philosophy-main-title{
-    font-size:68px;
-    letter-spacing:-3px;
-  }
-
-  .philosophy-values{
-    grid-template-columns:1fr;
-  }
-
-  .philosophy-value{
-    min-height:auto;
-  }
-
-  .value-number{
-    margin-bottom:20px;
-  }
-
-  .color-philosophy{
-    grid-template-columns:1fr;
-    gap:40px;
-  }
-
-
-  /* IMAGES */
-
-  .full-image,
-  .course-image{
-    height:58vh;
-    min-height:400px;
-  }
-
-
-  /* COURSES */
-
-  .course-select-title{
-    font-size:66px;
-  }
-
-  .course-grid{
-    grid-template-columns:1fr;
-  }
-
-  .course-card{
-    min-height:330px;
-  }
-
-
-  /* COURSE DETAIL */
-
-  .course-section{
+  .team-section{
     padding:
       0
       20px
       100px;
   }
 
+  .full-image{
+    height:58vh;
+    min-height:360px;
+
+    margin-bottom:50px;
+  }
+
+
+  /* -------------------------
+     TITLES
+  ------------------------- */
+
+  .section-title{
+    font-size:clamp(46px,13vw,68px);
+
+    line-height:.94;
+
+    letter-spacing:-1.5px;
+
+    margin-bottom:30px;
+  }
+
+  .philosophy-main-title{
+    font-size:clamp(50px,15vw,72px);
+
+    line-height:.92;
+
+    letter-spacing:-2px;
+  }
+
+  .course-select-title{
+    font-size:clamp(50px,15vw,72px);
+
+    line-height:.92;
+
+    letter-spacing:-2px;
+  }
+
   .course-title{
-    font-size:65px;
-    letter-spacing:-3px;
+    font-size:clamp(50px,15vw,72px);
+
+    line-height:.92;
+
+    letter-spacing:-2px;
   }
 
-  .course-text{
-    font-size:14px;
+  .development-title{
+    font-size:clamp(50px,15vw,72px);
+
+    line-height:.92;
+
+    letter-spacing:-2px;
   }
 
+  .results-title{
+    font-size:clamp(50px,15vw,72px);
 
-  /* DEVELOPMENT */
+    line-height:.92;
 
-  .development-grid{
-    grid-template-columns:1fr;
+    letter-spacing:-2px;
   }
 
-  .development-item{
-    min-height:auto;
-  }
+  .commitment-title{
+    font-size:clamp(50px,14vw,70px);
 
+    line-height:.92;
 
-  /* RESULTS */
-
-  .results-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .result-place{
-    font-size:45px;
-  }
-
-
-  /* COMMITMENT */
-
-  .commitment-item{
-    grid-template-columns:55px 1fr;
-  }
-
-  .commitment-item-text{
-    font-size:14px;
-  }
-
-
-  /* INSTAGRAM */
-
-  .instagram-minimal{
-    grid-template-columns:1fr;
-  }
-
-
-  /* JOIN */
-
-  .join-grid{
-    grid-template-columns:1fr;
+    letter-spacing:-2px;
   }
 
   .join-title{
-    font-size:70px;
+    font-size:clamp(52px,15vw,76px);
+
+    line-height:.88;
+
+    letter-spacing:-2px;
+  }
+
+  .final-title{
+    font-size:clamp(50px,14vw,70px);
+
+    line-height:.92;
+
+    letter-spacing:-2px;
   }
 
 
-  /* FOOTER */
+  /* -------------------------
+     TITLE LINE
+  ------------------------- */
+
+  .title-line{
+    white-space:nowrap;
+  }
+
+
+  /* -------------------------
+     COURSE SELECT
+  ------------------------- */
+
+  .course-select-grid{
+    margin-top:45px;
+  }
+
+  .course-select-card{
+    min-height:310px;
+    padding:26px;
+  }
+
+  .course-select-card h3{
+    font-size:42px;
+  }
+
+
+  /* -------------------------
+     ABOUT
+  ------------------------- */
+
+  .about-lead{
+    font-size:28px;
+    line-height:1.45;
+  }
+
+  .about-body{
+    font-size:14px;
+  }
+
+  .about-grid{
+    margin-top:50px;
+  }
+
+
+  /* -------------------------
+     DEVELOPMENT
+  ------------------------- */
+
+  .development-grid{
+    margin-top:45px;
+  }
+
+  .development-item{
+    padding:
+      28px
+      0;
+  }
+
+  .development-item:nth-child(even){
+    padding-left:0;
+  }
+
+  .development-number{
+    font-size:44px;
+  }
+
+
+  /* -------------------------
+     RESULTS
+  ------------------------- */
+
+  .results-grid{
+    margin-top:45px;
+  }
+
+  .result-card{
+    min-height:auto;
+    padding:28px;
+  }
+
+
+  /* -------------------------
+     COMMITMENT
+  ------------------------- */
+
+  .commitment-list{
+    margin-top:45px;
+  }
+
+  .commitment-item{
+    grid-template-columns:
+      62px
+      1fr;
+
+    gap:14px;
+  }
+
+  .commitment-number{
+    font-size:40px;
+  }
+
+
+  /* -------------------------
+     JOIN
+  ------------------------- */
+
+  .join-grid{
+    margin-top:45px;
+  }
+
+  .join-card{
+    padding:28px;
+  }
+
+  .join-card h3{
+    font-size:38px;
+  }
+
+
+  /* -------------------------
+     COLORS
+  ------------------------- */
+
+  .color-toggle-main{
+    font-size:27px;
+  }
+
+  .color-content-inner{
+    font-size:13px;
+  }
+
+
+  /* -------------------------
+     CTA
+  ------------------------- */
+
+  .cta-btn{
+    min-width:230px;
+  }
+
+
+  /* -------------------------
+     FOOTER
+  ------------------------- */
 
   .footer{
     padding:
       100px
       20px
-      60px;
+      70px;
   }
 
-  .footer-copy{
-    font-size:24px;
+  .footer-brand{
+    font-size:58px;
   }
 
 }
@@ -2022,58 +1859,73 @@ img{
    SMALL MOBILE
 ========================================================= */
 
-@media(max-width:390px){
+@media(max-width:420px){
+
+  .mobile-menu{
+    width:90%;
+    padding:30px;
+  }
+
+  .mobile-menu a{
+    font-size:31px;
+  }
 
   .hero-title{
-    font-size:69px;
+    font-size:72px;
   }
 
-  .hero-copy{
-    font-size:25px;
+  .section-title{
+    font-size:46px;
   }
 
-  .intro-title{
-    font-size:52px;
-  }
-
-  .philosophy-main-title{
-    font-size:58px;
-  }
-
-  .course-select-title{
-    font-size:57px;
-  }
-
-  .course-title{
-    font-size:57px;
-  }
-
+  .philosophy-main-title,
+  .course-select-title,
+  .course-title,
+  .development-title,
   .results-title,
-  .commitment-title{
-    font-size:58px;
+  .commitment-title,
+  .final-title{
+    font-size:48px;
   }
 
   .join-title{
-    font-size:60px;
+    font-size:52px;
+  }
+
+  /*
+    420px以下では長いタイトルだけ
+    さらに安全に改行できるようにする。
+  */
+
+  .commitment-title .title-line{
+    white-space:normal;
   }
 
 }
 
 
 /* =========================================================
-   REDUCED MOTION
+   VERY SMALL MOBILE
 ========================================================= */
 
-@media(prefers-reduced-motion:reduce){
+@media(max-width:360px){
 
-  html{
-    scroll-behavior:auto;
+  .section-title{
+    font-size:42px;
   }
 
-  *,
-  *::before,
-  *::after{
-    transition:none !important;
+  .philosophy-main-title,
+  .course-select-title,
+  .course-title,
+  .development-title,
+  .results-title,
+  .commitment-title,
+  .final-title{
+    font-size:44px;
+  }
+
+  .join-title{
+    font-size:48px;
   }
 
 }
@@ -2085,13 +1937,13 @@ img{
 <body>
 
 
-<!-- =========================================================
-     HEADER
-========================================================= -->
+<!-- =====================================================
+     NAV
+===================================================== -->
 
 <nav class="nav">
 
-  <a href="#" class="logo-wrap">
+  <div class="logo-wrap">
 
     <div class="logo">
       FC FICS
@@ -2100,37 +1952,8 @@ img{
     <img
       src="https://yatsuhashi-sc.com/_p/acre/7432/images/pc/de9693d1.png"
       class="header-emblem"
-      alt="FC FICS emblem"
+      alt="FC FICS"
     >
-
-  </a>
-
-
-  <div class="desktop-nav">
-
-    <a href="#philosophy">
-      PHILOSOPHY
-    </a>
-
-    <a href="#courses">
-      COURSES
-    </a>
-
-    <a href="#development">
-      DEVELOPMENT
-    </a>
-
-    <a href="#results">
-      RESULTS
-    </a>
-
-    <a href="#commitment">
-      COMMITMENT
-    </a>
-
-    <a href="#join" class="nav-join">
-      JOIN
-    </a>
 
   </div>
 
@@ -2146,9 +1969,9 @@ img{
 </nav>
 
 
-<!-- =========================================================
+<!-- =====================================================
      MOBILE MENU
-========================================================= -->
+===================================================== -->
 
 <div class="mobile-menu" id="mobileMenu">
 
@@ -2156,54 +1979,47 @@ img{
     CLOSE
   </div>
 
-
   <a href="#about">
     ABOUT
-    <span>FC FICSとは</span>
+    <span>FC FICSについて</span>
   </a>
-
 
   <a href="#philosophy">
     PHILOSOPHY
-    <span>育成理念</span>
+    <span>クラブ理念</span>
   </a>
-
 
   <a href="#courses">
     COURSES
-    <span>コース一覧</span>
+    <span>コース</span>
   </a>
-
 
   <a href="#development">
     DEVELOPMENT
-    <span>育成方針</span>
+    <span>育成</span>
   </a>
-
 
   <a href="#results">
     RESULTS
     <span>実績</span>
   </a>
 
-
   <a href="#commitment">
     COMMITMENT
-    <span>指導への姿勢</span>
+    <span>指導へのこだわり</span>
   </a>
-
 
   <a href="#join">
     JOIN
-    <span>体験・入団</span>
+    <span>入団・体験</span>
   </a>
 
 </div>
 
 
-<!-- =========================================================
+<!-- =====================================================
      HERO
-========================================================= -->
+===================================================== -->
 
 <section class="hero-section">
 
@@ -2216,21 +2032,21 @@ img{
 
     <div class="hero-content">
 
-      <div class="hero-eyebrow">
-        YOKOHAMA / FC FICS
-      </div>
-
-
       <h1 class="hero-title">
+
         MORE THAN<br>
+
         <span>FOOTBALL.</span>
+
       </h1>
 
 
       <div class="hero-copy">
+
         サッカーで、<br>
         サッカー以上の<br>
         価値を。
+
       </div>
 
 
@@ -2240,29 +2056,21 @@ img{
         強くなりたい。<br>
         成長したい。<br><br>
 
-        その本気を、FC FICSで。
+        その本気をFC FICSで。
 
       </div>
 
 
-      <div class="hero-bottom">
+      <a
+        href="#courses"
+        class="cta-btn"
+      >
 
-        <a
-          href="#courses"
-          class="cta-btn"
-        >
-          <span>コースを選ぶ</span>
-        </a>
+        <span>
+          コースを見る
+        </span>
 
-
-        <div class="hero-location">
-
-          横浜市旭区を中心に活動<br>
-          選手コース / アカデミー / スクール / キッズビジター
-
-        </div>
-
-      </div>
+      </a>
 
     </div>
 
@@ -2271,271 +2079,176 @@ img{
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      ABOUT
-========================================================= -->
+===================================================== -->
 
-<section class="section intro-section" id="about">
+<section class="about-section" id="about">
 
-  <div class="section-inner">
+  <div class="content-inner">
 
-    <div class="intro-grid">
-
-      <div>
-
-        <div class="section-label">
-          ABOUT FC FICS
-        </div>
-
-
-        <h2 class="intro-title">
-
-          <span>強くなろうとする。</span><br>
-          その過程を、<br>
-          大切にする。
-
-        </h2>
-
-      </div>
-
-
-      <div>
-
-        <div class="intro-copy">
-
-          FC FICSは、ただ「強い選手」をつくるためのクラブではありません。
-
-          <br><br>
-
-          うまくなろうと努力する。<br>
-          強くなろうと挑戦する。<br>
-          自分の課題から逃げない。<br>
-          仲間とともに成長する。
-
-          <br><br>
-
-          その積み重ねそのものに、
-          サッカーの価値があると考えています。
-
-        </div>
-
-
-        <div class="intro-points">
-
-          <div class="intro-point">
-
-            <span class="intro-point-number">
-              01
-            </span>
-
-            <div class="intro-point-text">
-              技術を磨く
-            </div>
-
-          </div>
-
-
-          <div class="intro-point">
-
-            <span class="intro-point-number">
-              02
-            </span>
-
-            <div class="intro-point-text">
-              判断を磨く
-            </div>
-
-          </div>
-
-
-          <div class="intro-point">
-
-            <span class="intro-point-number">
-              03
-            </span>
-
-            <div class="intro-point-text">
-              挑戦する
-            </div>
-
-          </div>
-
-
-          <div class="intro-point">
-
-            <span class="intro-point-number">
-              04
-            </span>
-
-            <div class="intro-point-text">
-              成長し続ける
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
+    <div class="section-label">
+      ABOUT FC FICS
     </div>
 
-  </div>
 
-</section>
+    <h2 class="section-title">
 
+      <span class="title-line">
+        サッカーを通して、
+      </span>
 
-<!-- =========================================================
-     PHILOSOPHY
-========================================================= -->
+      <span class="title-line">
+        人を育てる。
+      </span>
 
-<section
-  class="section philosophy-section"
-  id="philosophy"
->
-
-  <div class="section-inner">
-
-    <div class="philosophy-header">
-
-      <div class="section-label">
-        PHILOSOPHY / 育成理念
-      </div>
+    </h2>
 
 
-      <h2 class="philosophy-main-title">
+    <div class="about-lead">
 
-        ひたむきに、<br>
-        <span>ひたすらに。</span>
-
-      </h2>
+      FC FICSは、<br>
+      「強くなろうとするクラブ」でありたい。
 
     </div>
 
 
-    <!-- FIVE VALUES -->
+    <div class="about-body">
 
-    <div class="philosophy-values">
+      サッカーがうまくなること。<br>
+      試合に勝つこと。<br>
+      それはもちろん大切。<br><br>
+
+      でも、それだけではない。<br><br>
+
+      うまくなろうと努力すること。<br>
+      強くなろうともがくこと。<br>
+      仲間と競い合うこと。<br>
+      失敗しても、また挑戦すること。<br><br>
+
+      その一つひとつの経験が、<br>
+      選手を、そして人を成長させる。<br><br>
+
+      FC FICSは、<br>
+      サッカーを通して、<br>
+      サッカー以上の価値を届ける。
+
+    </div>
 
 
-      <div class="philosophy-value">
+    <div class="about-grid">
 
-        <div class="value-number">
+      <div class="about-item">
+
+        <div class="about-number">
           01
         </div>
 
-        <div class="value-title">
-          努力
-        </div>
+        <h3>
+          CHALLENGE
+        </h3>
 
-        <div class="value-text">
-          うまくなろうとする努力ができる。
-        </div>
+        <p>
+          失敗を恐れず、挑戦する。
+        </p>
 
       </div>
 
 
-      <div class="philosophy-value">
+      <div class="about-item">
 
-        <div class="value-number">
+        <div class="about-number">
           02
         </div>
 
-        <div class="value-title">
-          覚悟
-        </div>
+        <h3>
+          EFFORT
+        </h3>
 
-        <div class="value-text">
-          強くなろうとする覚悟がある。
-        </div>
+        <p>
+          目標に向かって努力を積み重ねる。
+        </p>
 
       </div>
 
 
-      <div class="philosophy-value">
+      <div class="about-item">
 
-        <div class="value-number">
+        <div class="about-number">
           03
         </div>
 
-        <div class="value-title">
-          向上心
-        </div>
+        <h3>
+          COMPETE
+        </h3>
 
-        <div class="value-text">
-          サッカーを理解しようとする向上心がある。
-        </div>
+        <p>
+          仲間と競い合い、自分を高める。
+        </p>
 
       </div>
 
 
-      <div class="philosophy-value">
+      <div class="about-item">
 
-        <div class="value-number">
+        <div class="about-number">
           04
         </div>
 
-        <div class="value-title">
-          責任
-        </div>
+        <h3>
+          GROW
+        </h3>
 
-        <div class="value-text">
-          チームの一員としての自覚と責任がある。
-        </div>
-
-      </div>
-
-
-      <div class="philosophy-value">
-
-        <div class="value-number">
-          05
-        </div>
-
-        <div class="value-title">
-          誇り
-        </div>
-
-        <div class="value-text">
-          チームに誇りと愛情がある。
-        </div>
+        <p>
+          サッカーを通して、人として成長する。
+        </p>
 
       </div>
 
     </div>
 
+  </div>
 
-    <!-- COLOR PHILOSOPHY -->
-
-    <div class="color-philosophy">
+</section>
 
 
-      <div>
+<!-- =====================================================
+     PHILOSOPHY
+===================================================== -->
 
-        <div class="color-intro-title">
-          OUR<br>
-          COLORS.
-        </div>
+<section class="philosophy-section" id="philosophy">
 
-        <div class="color-intro-text">
+  <div class="content-inner">
 
-          FC FICSのクラブカラーには、
-          それぞれ意味があります。
+    <div class="section-label">
+      PHILOSOPHY
+    </div>
 
-          <br><br>
 
-          情熱。<br>
-          継続。<br>
-          そして、美しさ。
+    <h2 class="philosophy-main-title">
 
-        </div>
+      <span class="title-line">
+        ひたむきに、
+      </span>
 
+      <span class="title-line">
+        ひたすらに。
+      </span>
+
+    </h2>
+
+
+    <div class="section-text">
+
+      <div style="margin-bottom:20px;">
+        FC FICSのクラブカラー。
       </div>
 
 
-      <div class="color-list">
+      <div class="color-accordion">
 
 
-        <!-- RED -->
+        <!-- PASSION RED -->
 
         <div class="color-item">
 
@@ -2552,7 +2265,7 @@ img{
 
             </span>
 
-            <span class="color-icon"></span>
+            <span class="color-toggle-icon"></span>
 
           </button>
 
@@ -2575,7 +2288,7 @@ img{
         </div>
 
 
-        <!-- INDIGO -->
+        <!-- UNFLAGGING INDIGO -->
 
         <div class="color-item">
 
@@ -2592,7 +2305,7 @@ img{
 
             </span>
 
-            <span class="color-icon"></span>
+            <span class="color-toggle-icon"></span>
 
           </button>
 
@@ -2616,7 +2329,7 @@ img{
         </div>
 
 
-        <!-- WHITE -->
+        <!-- LOTUS WHITE -->
 
         <div class="color-item">
 
@@ -2633,7 +2346,7 @@ img{
 
             </span>
 
-            <span class="color-icon"></span>
+            <span class="color-toggle-icon"></span>
 
           </button>
 
@@ -2666,220 +2379,202 @@ img{
 
     <div class="full-image philosophy-image"></div>
 
+
+    <a
+      href="#courses"
+      class="cta-btn"
+    >
+
+      <span>
+        コースを見る
+      </span>
+
+    </a>
+
   </div>
 
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      COURSE SELECT
-========================================================= -->
+===================================================== -->
 
-<section
-  class="section course-select-section"
-  id="courses"
->
+<section class="course-select-section" id="courses">
 
-  <div class="section-inner">
+  <div class="content-inner">
 
-    <div class="course-select-header">
-
-      <div class="section-label">
-        CHOOSE YOUR FICS
-      </div>
+    <div class="section-label">
+      CHOOSE YOUR FICS
+    </div>
 
 
-      <h2 class="course-select-title">
+    <h2 class="course-select-title">
 
-        あなたに合った<br>
-        <span>FICS</span>を選ぶ。
+      <span class="title-line">
+        あなたに合った
+      </span>
 
-      </h2>
+      <span class="title-line">
+        FICSを選ぶ。
+      </span>
+
+    </h2>
 
 
-      <div class="course-select-sub">
+    <div class="section-text">
 
-        FC FICSには、目的や成長段階に合わせた
-        4つのコースがあります。
-
-        <br>
-
-        「本気で競技力を高めたい」
-        「まずは技術を磨きたい」
-        「まずはサッカーをやってみたい」
-
-        <br>
-
-        それぞれの想いに合った場所を選んでください。
-
-      </div>
+      FC FICSには、<br>
+      目的や成長段階に合わせた4つのコースがあります。
 
     </div>
 
 
-    <div class="course-grid">
+    <div class="course-select-grid">
 
 
       <!-- TEAM -->
 
-      <div class="course-card">
+      <a
+        href="https://yatsuhashi-sc.com/17496229772496"
+        class="course-select-card"
+      >
 
-        <div class="course-card-number">
-          01 / TEAM
-        </div>
-
-        <div class="course-card-name">
-          TEAM
-        </div>
-
-        <div class="course-card-jp">
-          選手コース
-        </div>
-
-        <div class="course-card-copy">
-
-          本気でサッカーに向き合い、
-          競技力を高めたい選手へ。
-
-        </div>
-
-        <div class="course-card-info">
-
-          小学1〜6年生<br>
-          トライアル制
-
-        </div>
-
-        <a
-          href="https://yatsuhashi-sc.com/17496229772496"
-          class="course-card-link"
+        <img
+          src="https://yatsuhashi-sc.com/_p/acre/7432/images/pc/fccbf9cf.JPG"
+          alt="選手コース"
         >
-          DETAILS
-        </a>
 
-      </div>
+        <div class="course-select-content">
+
+          <div class="course-select-number">
+            01 / TEAM
+          </div>
+
+          <h3>
+            PLAYER
+          </h3>
+
+          <p>
+            本気でサッカーに向き合い、<br>
+            高い基準で成長したい選手へ。
+          </p>
+
+          <div class="course-select-arrow">
+            →
+          </div>
+
+        </div>
+
+      </a>
 
 
       <!-- ACADEMY -->
 
-      <div class="course-card">
+      <a
+        href="https://yatsuhashi-sc.com/17496090462985"
+        class="course-select-card"
+      >
 
-        <div class="course-card-number">
-          02 / ACADEMY
-        </div>
-
-        <div class="course-card-name">
-          ACADEMY
-        </div>
-
-        <div class="course-card-jp">
-          アカデミーコース
-        </div>
-
-        <div class="course-card-copy">
-
-          高い基準の中で、
-          技術・判断・強度を磨きたい選手へ。
-
-        </div>
-
-        <div class="course-card-info">
-
-          小学1〜6年生<br>
-          他チーム所属OK<br>
-          体験参加2回まで無料
-
-        </div>
-
-        <a
-          href="https://yatsuhashi-sc.com/17496090462985"
-          class="course-card-link"
+        <img
+          src="https://yatsuhashi-sc.com/_p/acre/7432/images/pc/ac41edc9.jpg"
+          alt="アカデミーコース"
         >
-          DETAILS
-        </a>
 
-      </div>
+        <div class="course-select-content">
+
+          <div class="course-select-number">
+            02 / ACADEMY
+          </div>
+
+          <h3>
+            ACADEMY
+          </h3>
+
+          <p>
+            選手コースと同じ環境で、<br>
+            高い基準を日常に。
+          </p>
+
+          <div class="course-select-arrow">
+            →
+          </div>
+
+        </div>
+
+      </a>
 
 
       <!-- SCHOOL -->
 
-      <div class="course-card">
+      <a
+        href="https://yatsuhashi-sc.com/16975195954735"
+        class="course-select-card"
+      >
 
-        <div class="course-card-number">
-          03 / SCHOOL
-        </div>
-
-        <div class="course-card-name">
-          SCHOOL
-        </div>
-
-        <div class="course-card-jp">
-          FICSサッカースクール
-        </div>
-
-        <div class="course-card-copy">
-
-          自由自在にボールをあやつる。
-          技術を徹底的に磨きたい選手へ。
-
-        </div>
-
-        <div class="course-card-info">
-
-          小学1〜6年生<br>
-          体験参加2回まで無料
-
-        </div>
-
-        <a
-          href="https://yatsuhashi-sc.com/16975195954735"
-          class="course-card-link"
+        <img
+          src="https://yatsuhashi-sc.com/_p/acre/7432/images/pc/e5b66d45.jpg"
+          alt="FICSサッカースクール"
         >
-          DETAILS
-        </a>
 
-      </div>
+        <div class="course-select-content">
+
+          <div class="course-select-number">
+            03 / SCHOOL
+          </div>
+
+          <h3>
+            SCHOOL
+          </h3>
+
+          <p>
+            ボールを自由自在に扱う。<br>
+            個人技術を徹底的に磨く。
+          </p>
+
+          <div class="course-select-arrow">
+            →
+          </div>
+
+        </div>
+
+      </a>
 
 
       <!-- KIDS -->
 
-      <div class="course-card">
+      <a
+        href="https://fics-academy.github.io/kidsvisitor/"
+        class="course-select-card"
+      >
 
-        <div class="course-card-number">
-          04 / KIDS
-        </div>
-
-        <div class="course-card-name">
-          KIDS
-        </div>
-
-        <div class="course-card-jp">
-          キッズビジターコース
-        </div>
-
-        <div class="course-card-copy">
-
-          初めてのサッカーを、
-          もっと自由に。
-
-        </div>
-
-        <div class="course-card-info">
-
-          年少〜小学1年生<br>
-          土日不定期開催<br>
-          1回 1,000円
-
-        </div>
-
-        <a
-          href="https://fics-academy.github.io/kidsvisitor/"
-          class="course-card-link"
+        <img
+          src="https://yatsuhashi-sc.com/_p/acre/7432/images/pc/5ba896a2.jpg"
+          alt="キッズビジターコース"
         >
-          DETAILS
-        </a>
 
-      </div>
+        <div class="course-select-content">
+
+          <div class="course-select-number">
+            04 / KIDS VISITOR
+          </div>
+
+          <h3>
+            KIDS
+          </h3>
+
+          <p>
+            はじめてのサッカーを、<br>
+            もっと自由に。
+          </p>
+
+          <div class="course-select-arrow">
+            →
+          </div>
+
+        </div>
+
+      </a>
 
     </div>
 
@@ -2888,19 +2583,15 @@ img{
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      TEAM
-========================================================= -->
+===================================================== -->
 
-<section
-  class="course-section team-section"
-  id="team"
->
+<section class="team-section" id="team">
 
-  <div class="course-inner">
+  <div class="full-image team-image"></div>
 
-    <div class="course-image team-image"></div>
-
+  <div class="content-inner">
 
     <div class="course-name">
       TEAM / 選手コース
@@ -2909,32 +2600,29 @@ img{
 
     <h2 class="course-title">
 
-      本気の選手が<br>
-      集まる場所
+      <span class="title-line">
+        本気の選手が
+      </span>
+
+      <span class="title-line">
+        集まる場所
+      </span>
 
     </h2>
 
 
     <div class="course-text">
 
-      技術。判断。駆け引き。
-
-      <br><br>
+      技術。判断。駆け引き。<br><br>
 
       個を磨き、チームの力へ。<br>
-      どこからでも、誰からでも勝負できる選手へ。
-
-      <br><br>
+      どこからでも、誰からでも勝負できる選手へ。<br><br>
 
       FC FICSは、高い基準を求める。<br>
-      でも、今の実力だけで選手を評価しない。
-
-      <br><br>
+      でも、今の実力だけで選手を評価しない。<br><br>
 
       「ここで成長したい」<br>
-      「ここで闘いたい」
-
-      <br><br>
+      「ここで闘いたい」<br><br>
 
       その意志と覚悟を重視する。
 
@@ -2956,27 +2644,33 @@ img{
       href="https://yatsuhashi-sc.com/17496229772496"
       class="cta-btn"
     >
-      <span>選手コース詳細を見る</span>
+
+      <span>
+        選手コース詳細を見る
+      </span>
+
     </a>
+
+
+    <div
+      class="course-divider"
+      style="margin-top:70px;"
+    ></div>
 
   </div>
 
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      ACADEMY
-========================================================= -->
+===================================================== -->
 
-<section
-  class="course-section academy-section"
-  id="academy"
->
+<section class="academy-section" id="academy">
 
-  <div class="course-inner">
+  <div class="full-image academy-image"></div>
 
-    <div class="course-image academy-image"></div>
-
+  <div class="content-inner">
 
     <div class="course-name">
       ACADEMY / アカデミーコース
@@ -2985,8 +2679,13 @@ img{
 
     <h2 class="course-title">
 
-      高い基準を<br>
-      日常に
+      <span class="title-line">
+        高い基準を
+      </span>
+
+      <span class="title-line">
+        日常に
+      </span>
 
     </h2>
 
@@ -2994,14 +2693,10 @@ img{
     <div class="course-text">
 
       選手コースと同じ環境で、<br>
-      技術、判断、強度を磨く。
+      技術、判断、強度を磨く。<br><br>
 
-      <br><br>
-
-      FC FICS選手コースの平日練習に
-      参加できるコース。
-
-      <br><br>
+      FC FICS選手コースの平日練習に<br>
+      参加できるコース。<br><br>
 
       他チーム所属選手OK。<br>
       選手コースを目指す入口としても。
@@ -3024,27 +2719,33 @@ img{
       href="https://yatsuhashi-sc.com/17496090462985"
       class="cta-btn"
     >
-      <span>アカデミーコース詳細を見る</span>
+
+      <span>
+        アカデミーコース詳細を見る
+      </span>
+
     </a>
+
+
+    <div
+      class="course-divider"
+      style="margin-top:70px;"
+    ></div>
 
   </div>
 
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      SCHOOL
-========================================================= -->
+===================================================== -->
 
-<section
-  class="course-section school-section"
-  id="school"
->
+<section class="school-section" id="school">
 
-  <div class="course-inner">
+  <div class="full-image school-image"></div>
 
-    <div class="course-image school-image"></div>
-
+  <div class="content-inner">
 
     <div class="course-name">
       SCHOOL / FICSサッカースクール
@@ -3053,32 +2754,33 @@ img{
 
     <h2 class="course-title">
 
-      自由自在に<br>
-      ボールを<br>
-      あやつれ
+      <span class="title-line">
+        自由自在に
+      </span>
+
+      <span class="title-line">
+        ボールを
+      </span>
+
+      <span class="title-line">
+        あやつれ
+      </span>
 
     </h2>
 
 
     <div class="course-text">
 
-      リフティング、ボールタッチで
-      徹底的にボール扱いを磨き、
+      リフティング、ボールタッチで<br>
+      徹底的にボール扱いを磨き、<br>
+      実戦で何度もチャレンジし、<br>
+      個人技術を高める。<br><br>
 
-      <br>
+      ✓　ボールを思い通りに扱えるようになる<br>
+      ✓　ボールを持つことが心から楽しくなる<br>
+      ✓　チャレンジすることが当たり前になる<br><br>
 
-      実戦で何度もチャレンジし、
-      個人技術を高める。
-
-      <br><br>
-
-      ✓ ボールを思い通りに扱えるようになる<br>
-      ✓ ボールを持つことが心から楽しくなる<br>
-      ✓ チャレンジすることが当たり前になる
-
-      <br><br>
-
-      「技術」だけでなく
+      「技術」だけでなく<br>
       「挑戦する姿勢」まで育てるスクール。
 
     </div>
@@ -3099,27 +2801,33 @@ img{
       href="https://yatsuhashi-sc.com/16975195954735"
       class="cta-btn"
     >
-      <span>スクール詳細を見る</span>
+
+      <span>
+        スクール詳細を見る
+      </span>
+
     </a>
+
+
+    <div
+      class="course-divider"
+      style="margin-top:70px;"
+    ></div>
 
   </div>
 
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      KIDS
-========================================================= -->
+===================================================== -->
 
-<section
-  class="course-section kids-section"
-  id="kids"
->
+<section class="kids-section" id="kids">
 
-  <div class="course-inner">
+  <div class="full-image kids-image"></div>
 
-    <div class="course-image kids-image"></div>
-
+  <div class="content-inner">
 
     <div class="course-name">
       KIDS VISITOR / キッズビジターコース
@@ -3128,9 +2836,17 @@ img{
 
     <h2 class="course-title">
 
-      はじめての<br>
-      サッカーを<br>
-      もっと自由に
+      <span class="title-line">
+        はじめての
+      </span>
+
+      <span class="title-line">
+        サッカーを
+      </span>
+
+      <span class="title-line">
+        もっと自由に
+      </span>
 
     </h2>
 
@@ -3138,15 +2854,10 @@ img{
     <div class="course-text">
 
       サッカーをやってみたい。<br>
-      まずは気軽にボールに触れてみたい。
+      まずは気軽にボールに触れてみたい。<br><br>
 
-      <br><br>
-
-      キッズビジターコースは、
-      FC FICSのサッカーを
-      気軽に体験できるコース。
-
-      <br><br>
+      キッズビジターコースは、<br>
+      FC FICSのサッカーを気軽に体験できるコース。<br><br>
 
       初めてでも大丈夫。<br>
       ボールを追いかける楽しさから始めよう。
@@ -3170,57 +2881,64 @@ img{
       href="https://fics-academy.github.io/kidsvisitor/"
       class="cta-btn"
     >
-      <span>キッズビジター詳細を見る</span>
+
+      <span>
+        キッズビジター詳細を見る
+      </span>
+
     </a>
+
+
+    <div
+      class="course-divider"
+      style="margin-top:70px;"
+    ></div>
 
   </div>
 
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      DEVELOPMENT
-========================================================= -->
+===================================================== -->
 
-<section
-  class="section development-section"
-  id="development"
->
+<section class="development-section" id="development">
 
-  <div class="section-inner">
+  <div class="content-inner">
 
-    <div class="development-header">
-
-      <div class="section-label">
-        PLAYER DEVELOPMENT
-      </div>
+    <div class="section-label">
+      PLAYER DEVELOPMENT
+    </div>
 
 
-      <h2 class="development-title">
+    <h2 class="development-title">
 
-        うまくなる。<br>
-        <span>強くなる。</span><br>
+      <span class="title-line">
+        うまくなる。
+      </span>
+
+      <span class="title-line">
+        強くなる。
+      </span>
+
+      <span class="title-line">
         その先へ。
+      </span>
 
-      </h2>
+    </h2>
 
 
-      <div class="section-lead">
+    <div class="section-text">
 
-        FC FICSが大切にするのは、
-        「何を教えるか」だけではありません。
+      FC FICSが大切にするのは、<br>
+      目の前の結果だけではない。<br><br>
 
-        <br><br>
+      選手が、昨日の自分より成長しているか。<br>
+      そのために何を考え、何を積み重ねるか。<br><br>
 
-        自分で考え、挑戦し、失敗し、
-        もう一度挑戦する。
-
-        <br><br>
-
-        その繰り返しの中で、
-        サッカー選手として、人として成長していく。
-
-      </div>
+      日々のトレーニングから、<br>
+      選手の成長に向き合う。
 
     </div>
 
@@ -3234,14 +2952,13 @@ img{
           01
         </div>
 
-        <div class="development-name">
-          TECHNIQUE
-        </div>
+        <h3>
+          駆け引きで相手の逆をつける
+        </h3>
 
-        <div class="development-text">
-          ボールを正確に扱う。
-          自分の思い通りにプレーするための土台。
-        </div>
+        <p>
+          相手を見て、考えて、意図を持ってプレーする。
+        </p>
 
       </div>
 
@@ -3252,14 +2969,13 @@ img{
           02
         </div>
 
-        <div class="development-name">
-          DECISION
-        </div>
+        <h3>
+          ボールを前進させられる
+        </h3>
 
-        <div class="development-text">
-          見る。考える。選ぶ。
-          状況に応じた判断を磨く。
-        </div>
+        <p>
+          状況を判断し、チームを前へ進めるプレーを選択する。
+        </p>
 
       </div>
 
@@ -3270,14 +2986,13 @@ img{
           03
         </div>
 
-        <div class="development-name">
-          DUEL
-        </div>
+        <h3>
+          相手を剥がすドリブル
+        </h3>
 
-        <div class="development-text">
-          相手と向き合う。
-          駆け引きし、勝負する。
-        </div>
+        <p>
+          個人で局面を変え、相手の守備を突破する。
+        </p>
 
       </div>
 
@@ -3288,14 +3003,13 @@ img{
           04
         </div>
 
-        <div class="development-name">
-          CHALLENGE
-        </div>
+        <h3>
+          インターセプト
+        </h3>
 
-        <div class="development-text">
-          失敗を恐れず、
-          自分から仕掛ける。
-        </div>
+        <p>
+          相手の意図を読み、先回りしてボールを奪う。
+        </p>
 
       </div>
 
@@ -3306,14 +3020,13 @@ img{
           05
         </div>
 
-        <div class="development-name">
-          CONTINUITY
-        </div>
+        <h3>
+          最後まで相手を追い続ける
+        </h3>
 
-        <div class="development-text">
-          一度で終わらせない。
-          積み重ねることを力にする。
-        </div>
+        <p>
+          苦しい瞬間でも、プレーをやめない強さを身につける。
+        </p>
 
       </div>
 
@@ -3324,16 +3037,16 @@ img{
           06
         </div>
 
-        <div class="development-name">
-          CHARACTER
-        </div>
+        <h3>
+          両足で正確にプレーする
+        </h3>
 
-        <div class="development-text">
-          チームの一員として、
-          自覚と責任を持って行動する。
-        </div>
+        <p>
+          止める・蹴るを両足で正確に行い、プレーの幅を広げる。
+        </p>
 
       </div>
+
 
     </div>
 
@@ -3342,279 +3055,139 @@ img{
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      RESULTS
-========================================================= -->
+===================================================== -->
 
-<section
-  class="section results-section"
-  id="results"
->
+<section class="results-section" id="results">
 
-  <div class="section-inner">
+  <div class="full-image results-image"></div>
 
-    <div class="full-image results-image"></div>
+  <div class="content-inner">
 
-
-    <div class="results-header">
-
-      <div class="section-label">
-        RESULTS
-      </div>
+    <div class="section-label">
+      RESULTS
+    </div>
 
 
-      <h2 class="results-title">
+    <h2 class="results-title">
 
-        積み重ねが<br>
-        <span>結果を生む。</span>
+      <span class="title-line">
+        積み重ねが
+      </span>
 
-      </h2>
+      <span class="title-line">
+        結果を生む
+      </span>
+
+    </h2>
 
 
-      <div class="results-copy">
+    <div class="section-text">
 
-        FC FICSには、
-        最初から特別な選手ばかりがいるわけではない。
+      FC FICSには、<br>
+      最初から特別な選手ばかりがいるわけではない。<br>
+      努力を積み重ね、<br>
+      別人のように成長していく。<br><br>
 
-        <br><br>
+      ひとりひとりの努力が、<br>
+      チームを変える。<br><br>
 
-        努力を積み重ね、
-        別人のように成長していく。
+      そして、その積み重ねは結果を生む。<br><br>
 
-        <br><br>
-
-        その積み重ねは、
-        ときに「結果」という形になる。
-
-        <br><br>
-
-        もちろん、
-        すべての努力が勝利につながるわけではない。
-
-        <br><br>
-
-        それでも、
-        本気で取り組んだ時間の価値は変わらない。
-
-      </div>
+      例え、それが「勝利」という結果ではなかったとしても。
 
     </div>
 
 
-    <div class="results-grid">
+    <div
+      class="results-grid"
+    >
 
 
-      <div class="result-item">
+      <div class="result-card">
 
-        <div class="result-place">
-          WINNER
-        </div>
-
-        <div class="result-event">
-          旭区大会<br>
-          優勝
-        </div>
-
-      </div>
-
-
-      <div class="result-item">
-
-        <div class="result-place">
-          BEST 16
-        </div>
-
-        <div class="result-event">
-          横浜市<br>
-          国チビ
-        </div>
-
-      </div>
-
-
-      <div class="result-item">
-
-        <div class="result-place">
-          BEST 32
-        </div>
-
-        <div class="result-event">
-          神奈川県<br>
-          日産CUP
-        </div>
-
-      </div>
-
-
-      <div class="result-item">
-
-        <div class="result-place">
-          BEST 16
-        </div>
-
-        <div class="result-event">
-          神奈川県<br>
-          全日本U12
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="result-note">
-
-      ※近年の主な戦績
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     COMMITMENT
-========================================================= -->
-
-<section
-  class="section commitment-section"
-  id="commitment"
->
-
-  <div class="section-inner">
-
-    <div class="full-image commitment-image"></div>
-
-
-    <div class="commitment-header">
-
-      <div class="section-label">
-        COMMITMENT
-      </div>
-
-
-      <h2 class="commitment-title">
-
-        選手の本気に、<br>
-        <span>指導者も本気で応える。</span>
-
-      </h2>
-
-
-      <div class="commitment-copy">
-
-        FC FICSは、
-        選手に高い基準を求める。
-
-        <br><br>
-
-        妥協しない。<br>
-        ごまかさない。<br>
-        できたつもりで終わらせない。
-
-        <br><br>
-
-        もっとできる。<br>
-        もっと良くなれる。
-
-        <br><br>
-
-        そう信じているから、
-        課題から目を背けない。
-
-        <br><br>
-
-        選手にとって、
-        耳の痛いことを伝える時もある。
-
-        <br><br>
-
-        でも、向き合うことをやめない。
-
-      </div>
-
-    </div>
-
-
-    <div class="commitment-list">
-
-
-      <div class="commitment-item">
-
-        <div class="commitment-item-number">
+        <div class="number">
           01
         </div>
 
-        <div class="commitment-item-text">
-          妥協しない。
-        </div>
+        <h3>
+          旭区大会優勝
+        </h3>
+
+        <p>
+          地域大会での優勝。
+        </p>
 
       </div>
 
 
-      <div class="commitment-item">
+      <div class="result-card">
 
-        <div class="commitment-item-number">
+        <div class="number">
           02
         </div>
 
-        <div class="commitment-item-text">
-          ごまかさない。
-        </div>
+        <h3>
+          横浜市ベスト16
+        </h3>
+
+        <p>
+          国チビでの戦績。
+        </p>
 
       </div>
 
 
-      <div class="commitment-item">
+      <div class="result-card">
 
-        <div class="commitment-item-number">
+        <div class="number">
           03
         </div>
 
-        <div class="commitment-item-text">
-          課題から目を背けない。
-        </div>
+        <h3>
+          神奈川県ベスト32
+        </h3>
+
+        <p>
+          日産CUPでの戦績。
+        </p>
 
       </div>
 
 
-      <div class="commitment-item">
+      <div class="result-card">
 
-        <div class="commitment-item-number">
+        <div class="number">
           04
         </div>
 
-        <div class="commitment-item-text">
-          挑戦することを求める。
-        </div>
+        <h3>
+          神奈川県ベスト16
+        </h3>
+
+        <p>
+          全日本U12での戦績。
+        </p>
 
       </div>
 
-
-      <div class="commitment-item">
-
-        <div class="commitment-item-number">
-          05
-        </div>
-
-        <div class="commitment-item-text">
-          本気で成長したい選手に、本気で向き合う。
-        </div>
-
-      </div>
 
     </div>
 
 
-    <br><br><br>
+    <br><br>
 
 
     <a
-      href="https://yatsuhashi-sc.com/17411533908422"
+      href="#courses"
       class="cta-btn"
     >
-      <span>指導者紹介を見る</span>
+
+      <span>
+        コースを見る
+      </span>
+
     </a>
 
   </div>
@@ -3622,39 +3195,110 @@ img{
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
+     COMMITMENT
+===================================================== -->
+
+<section class="commitment-section" id="commitment">
+
+  <div class="full-image commitment-image"></div>
+
+  <div class="content-inner">
+
+    <div class="section-label">
+      COMMITMENT
+    </div>
+
+
+    <h2 class="commitment-title">
+
+      <span class="title-line">
+        選手の本気に、
+      </span>
+
+      <span class="title-line">
+        指導者も本気で応える。
+      </span>
+
+    </h2>
+
+
+    <div class="section-text">
+
+      FC FICSは、選手に高い基準を求める。<br>
+      妥協しない。<br>
+      ごまかさない。<br>
+      できたつもりで終わらせない。<br><br>
+
+      もっとできる。<br>
+      もっと良くなれる。<br>
+      そう信じているから。<br><br>
+
+      だから、<br>
+      逃げのプレーを見逃さない。<br>
+      取り繕った誉め言葉はかけない。<br>
+      弱気な選択を良しとしない。<br>
+      課題から目を背けない。<br><br>
+
+      選手にとって、<br>
+      耳の痛いことを伝える時もある。<br><br>
+
+      でも、向き合うことをやめない。<br><br>
+
+      本気で成長したい選手に、<br>
+      本気で向き合う。<br><br>
+
+      選手の本気に、<br>
+      指導者も本気で応える。
+
+    </div>
+
+
+    <br><br>
+
+
+    <a
+      href="https://yatsuhashi-sc.com/17411533908422"
+      class="cta-btn"
+    >
+
+      <span>
+        指導者紹介を見る
+      </span>
+
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
      INSIDE FICS
-========================================================= -->
+===================================================== -->
 
-<section class="section inside-section">
+<section class="inside-section">
 
-  <div class="section-inner">
+  <div class="full-image inside-image"></div>
 
-    <div class="full-image inside-image"></div>
-
+  <div class="content-inner">
 
     <div class="section-label">
       INSIDE FICS
     </div>
 
 
-    <h2 class="inside-title">
-      FOLLOW<br>
-      THE REAL.
+    <h2 class="section-title">
+
+      <span class="title-line">
+        FOLLOW
+      </span>
+
+      <span class="title-line">
+        THE REAL.
+      </span>
+
     </h2>
-
-
-    <div class="section-lead" style="margin-top:35px;">
-
-      ピッチの上だけでは分からない、
-      FC FICSの日常。
-
-      <br>
-
-      選手たちの表情、トレーニング、
-      試合、クラブの空気を発信しています。
-
-    </div>
 
 
     <div class="instagram-minimal">
@@ -3680,8 +3324,10 @@ img{
               stroke-width="2"
             />
 
-            <path
-              d="M16 11.37C16.1234 12.2022 15.9812 13.0527 15.5937 13.799C15.2062 14.5453 14.5931 15.1512 13.8416 15.5298C13.0901 15.9084 12.2384 16.0395 11.4078 15.9057C10.5771 15.7719 9.80976 15.3799 9.21484 14.785C8.61991 14.19 8.22794 13.4227 8.09414 12.592C7.96034 11.7614 8.09171 10.9097 8.47005 10.1582C8.84839 9.40667 9.45404 8.79355 10.2008 8.40605C10.9476 8.01856 11.7976 7.87632 12.6298 7.9997C13.4784 8.1256 14.2649 8.5213 14.8728 9.12936C15.4807 9.73725 15.8766 10.5235 16.0025 11.3724Z"
+            <circle
+              cx="12"
+              cy="12"
+              r="4"
               stroke="white"
               stroke-width="2"
             />
@@ -3724,8 +3370,10 @@ img{
               stroke-width="2"
             />
 
-            <path
-              d="M16 11.37C16.1234 12.2022 15.9812 13.0527 15.5937 13.799C15.2062 14.5453 14.5931 15.1512 13.8416 15.5298C13.0901 15.9084 12.2384 16.0395 11.4078 15.9057C10.5771 15.7719 9.80976 15.3799 9.21484 14.785C8.61991 14.19 8.22794 13.4227 8.09414 12.592C7.96034 11.7614 8.09171 10.9097 8.47005 10.1582C8.84839 9.40667 9.45404 8.79355 10.2008 8.40605C10.9476 8.01856 11.7976 7.87632 12.6298 7.9997C13.4784 8.12559 14.2649 8.52146 14.8728 9.12936C15.4807 9.73725 15.8766 10.5235 16.0025 11.3724Z"
+            <circle
+              cx="12"
+              cy="12"
+              r="4"
               stroke="white"
               stroke-width="2"
             />
@@ -3755,48 +3403,48 @@ img{
 </section>
 
 
-<!-- =========================================================
-     FINAL BRAND MESSAGE
-========================================================= -->
+<!-- =====================================================
+     FINAL
+===================================================== -->
 
 <section class="final-section">
 
   <div class="final-bg"></div>
 
 
-  <div class="final-inner">
+  <div class="final-inner content-inner">
 
     <h2 class="final-title">
 
-      強くなろうと<br>
-      するクラブで<br>
-      ありたい。
+      <span class="title-line">
+        強くなろうと
+      </span>
+
+      <span class="title-line">
+        するクラブで
+      </span>
+
+      <span class="title-line">
+        ありたい
+      </span>
 
     </h2>
 
 
     <div class="final-text">
 
-      FC FICSは、
-      決して「強いクラブ」ではない。
+      FC FICSは、<br>
+      決して「強いクラブ」ではない。<br><br>
 
-      <br><br>
+      「強くなろうともがき続ける」クラブだ。<br><br>
 
-      「強くなろうともがき続ける」クラブだ。
+      結果的に、<br>
+      勝てずに終わるかもしれない。<br><br>
 
-      <br><br>
+      それでも、<br>
+      強くなろうとしたことの価値は変わらない。<br><br>
 
-      結果的に、
-      勝てずに終わるかもしれない。
-
-      <br><br>
-
-      それでも、
-      強くなろうとしたことの価値は変わらない。
-
-      <br><br>
-
-      本気で成長したい選手を、
+      本気で成長したい選手を、<br>
       FC FICSは待っている。
 
     </div>
@@ -3806,47 +3454,40 @@ img{
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      JOIN
-========================================================= -->
+===================================================== -->
 
-<section
-  class="section join-section"
-  id="join"
->
+<section class="join-section" id="join">
 
-  <div class="section-inner">
+  <div class="content-inner">
 
-    <div class="join-header">
-
-      <div class="section-label">
-        JOIN FC FICS
-      </div>
+    <div class="section-label">
+      JOIN FC FICS
+    </div>
 
 
-      <h2 class="join-title">
+    <h2 class="join-title">
 
-        本気で、<br>
-        <span>はじめよう。</span>
+      <span class="title-line">
+        本気で、
+      </span>
 
-      </h2>
+      <span class="title-line">
+        はじめよう。
+      </span>
+
+    </h2>
 
 
-      <div class="join-copy">
+    <div class="section-text">
 
-        「もっと上手くなりたい」。
-        「もっと強くなりたい」。
+      FC FICSで、<br>
+      サッカーを始める。<br>
+      もっと上手くなる。<br>
+      もっと強くなる。<br><br>
 
-        <br><br>
-
-        その気持ちが、FC FICSのスタートラインです。
-
-        <br><br>
-
-        あなたに合ったコースから、
-        FC FICSを始めてください。
-
-      </div>
+      まずは、自分に合ったコースから。
 
     </div>
 
@@ -3854,69 +3495,121 @@ img{
     <div class="join-grid">
 
 
+      <!-- PLAYER -->
+
       <div class="join-card">
 
-        <div class="join-card-name">
-          TEAM
+        <div class="join-card-number">
+          01 / TEAM
         </div>
 
-        <div class="join-card-text">
-          選手コース
-        </div>
+        <h3>
+          PLAYER
+        </h3>
 
-        <a href="https://yatsuhashi-sc.com/17496229772496">
-          詳細を見る
+        <p>
+          本気で競技サッカーに取り組みたい選手へ。
+        </p>
+
+        <a
+          href="https://yatsuhashi-sc.com/17496229772496"
+          class="cta-btn"
+        >
+
+          <span>
+            詳細を見る
+          </span>
+
         </a>
 
       </div>
 
 
+      <!-- ACADEMY -->
+
       <div class="join-card">
 
-        <div class="join-card-name">
+        <div class="join-card-number">
+          02 / ACADEMY
+        </div>
+
+        <h3>
           ACADEMY
-        </div>
+        </h3>
 
-        <div class="join-card-text">
-          アカデミーコース
-        </div>
+        <p>
+          高い基準の中で、もっと成長したい選手へ。
+        </p>
 
-        <a href="https://yatsuhashi-sc.com/17496090462985">
-          詳細を見る
+        <a
+          href="https://yatsuhashi-sc.com/17496090462985"
+          class="cta-btn"
+        >
+
+          <span>
+            詳細を見る
+          </span>
+
         </a>
 
       </div>
 
 
+      <!-- SCHOOL -->
+
       <div class="join-card">
 
-        <div class="join-card-name">
+        <div class="join-card-number">
+          03 / SCHOOL
+        </div>
+
+        <h3>
           SCHOOL
-        </div>
+        </h3>
 
-        <div class="join-card-text">
-          FICSサッカースクール
-        </div>
+        <p>
+          ボールを自由自在に扱えるようになりたい選手へ。
+        </p>
 
-        <a href="https://yatsuhashi-sc.com/16975195954735">
-          詳細を見る
+        <a
+          href="https://yatsuhashi-sc.com/16975195954735"
+          class="cta-btn"
+        >
+
+          <span>
+            詳細を見る
+          </span>
+
         </a>
 
       </div>
 
 
+      <!-- KIDS -->
+
       <div class="join-card">
 
-        <div class="join-card-name">
+        <div class="join-card-number">
+          04 / KIDS VISITOR
+        </div>
+
+        <h3>
           KIDS
-        </div>
+        </h3>
 
-        <div class="join-card-text">
-          キッズビジターコース
-        </div>
+        <p>
+          年少〜小学1年生。まずは気軽にサッカーを。
+        </p>
 
-        <a href="https://fics-academy.github.io/kidsvisitor/">
-          詳細を見る
+        <a
+          href="https://fics-academy.github.io/kidsvisitor/"
+          class="cta-btn"
+        >
+
+          <span>
+            詳細を見る
+          </span>
+
         </a>
 
       </div>
@@ -3929,9 +3622,9 @@ img{
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      FOOTER
-========================================================= -->
+===================================================== -->
 
 <footer class="footer">
 
@@ -3948,20 +3641,14 @@ img{
 
   </div>
 
-
-  <div class="footer-small">
-    FC FICS / YOKOHAMA
-  </div>
-
 </footer>
 
 
-<!-- =========================================================
+<!-- =====================================================
      SCRIPT
-========================================================= -->
+===================================================== -->
 
 <script>
-
 
 /* =========================================================
    MOBILE MENU
@@ -3977,43 +3664,13 @@ const mobileClose =
   document.getElementById('mobileClose');
 
 
-function openMenu(){
-
-  menuBtn.classList.add('active');
-
-  mobileMenu.classList.add('active');
-
-  document.body.classList.add('menu-open');
-
-}
-
-
-function closeMenu(){
-
-  menuBtn.classList.remove('active');
-
-  mobileMenu.classList.remove('active');
-
-  document.body.classList.remove('menu-open');
-
-}
-
-
 menuBtn.addEventListener(
   'click',
   function(){
 
-    if(
-      mobileMenu.classList.contains('active')
-    ){
+    menuBtn.classList.toggle('active');
 
-      closeMenu();
-
-    }else{
-
-      openMenu();
-
-    }
+    mobileMenu.classList.toggle('active');
 
   }
 );
@@ -4021,13 +3678,15 @@ menuBtn.addEventListener(
 
 mobileClose.addEventListener(
   'click',
-  closeMenu
+  function(){
+
+    menuBtn.classList.remove('active');
+
+    mobileMenu.classList.remove('active');
+
+  }
 );
 
-
-/* =========================================================
-   CLOSE MOBILE MENU WHEN LINK CLICKED
-========================================================= */
 
 const menuLinks =
   mobileMenu.querySelectorAll('a');
@@ -4038,7 +3697,13 @@ menuLinks.forEach(
 
     link.addEventListener(
       'click',
-      closeMenu
+      function(){
+
+        menuBtn.classList.remove('active');
+
+        mobileMenu.classList.remove('active');
+
+      }
     );
 
   }
@@ -4071,26 +3736,8 @@ colorToggles.forEach(
   }
 );
 
-
-/* =========================================================
-   ESC KEY
-========================================================= */
-
-document.addEventListener(
-  'keydown',
-  function(event){
-
-    if(event.key === 'Escape'){
-
-      closeMenu();
-
-    }
-
-  }
-);
-
-
 </script>
+
 
 </body>
 </html>
