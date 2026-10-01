@@ -40,6 +40,9 @@
 
 html{
   scroll-behavior:smooth;
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
 }
 
 body{
@@ -47,6 +50,8 @@ body{
   color:#fff;
   font-family:'Noto Sans JP',sans-serif;
   overflow-x:hidden;
+  width:100%;
+  max-width:100%;
 }
 
 a{
@@ -57,6 +62,7 @@ a{
 img{
   width:100%;
   display:block;
+  max-width:100%;
 }
 
 button{
@@ -80,11 +86,6 @@ button{
 /* =========================================================
    GLOBAL TITLE SYSTEM
 ========================================================= */
-
-/*
-  タイトルの意図した改行を保持するための設定。
-  各行を span.title-line で囲む。
-*/
 
 .title-line{
   display:block;
@@ -113,6 +114,8 @@ button{
   top:0;
   left:0;
   width:100%;
+  max-width:100%;
+
   z-index:9999;
 
   display:flex;
@@ -555,6 +558,8 @@ button{
 .join-section{
   position:relative;
   padding:140px 24px;
+  width:100%;
+  max-width:100%;
 }
 
 .about-section{
@@ -693,6 +698,8 @@ button{
   background-position:center;
 
   position:relative;
+
+  max-width:100vw;
 }
 
 .full-image::after{
@@ -1119,53 +1126,7 @@ button{
 ========================================================= */
 
 .development-grid{
-  margin-top:70px;
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
-  border-top:1px solid rgba(255,255,255,.12);
-}
-
-.development-item{
-  padding:34px 30px 34px 0;
-
-  border-bottom:1px solid rgba(255,255,255,.12);
-}
-
-.development-item:nth-child(odd){
-  border-right:1px solid rgba(255,255,255,.12);
-}
-
-.development-item:nth-child(even){
-  padding-left:30px;
-}
-
-.development-number{
-  font-family:'Bebas Neue',sans-serif;
-
-  color:var(--red);
-
-  font-size:52px;
-  line-height:1;
-
-  margin-bottom:16px;
-}
-
-.development-item h3{
-  font-size:20px;
-  line-height:1.5;
-
-  margin-bottom:10px;
-}
-
-.development-item p{
-  font-size:14px;
-  line-height:1.9;
-
-  opacity:.75;
+  display:none;
 }
 
 
@@ -1892,11 +1853,6 @@ button{
     font-size:52px;
   }
 
-  /*
-    420px以下では長いタイトルだけ
-    さらに安全に改行できるようにする。
-  */
-
   .commitment-title .title-line{
     white-space:normal;
   }
@@ -2248,8 +2204,6 @@ button{
       <div class="color-accordion">
 
 
-        <!-- PASSION RED -->
-
         <div class="color-item">
 
           <button
@@ -2287,8 +2241,6 @@ button{
 
         </div>
 
-
-        <!-- UNFLAGGING INDIGO -->
 
         <div class="color-item">
 
@@ -2328,8 +2280,6 @@ button{
 
         </div>
 
-
-        <!-- LOTUS WHITE -->
 
         <div class="color-item">
 
@@ -2433,8 +2383,6 @@ button{
     <div class="course-select-grid">
 
 
-      <!-- TEAM -->
-
       <a
         href="https://yatsuhashi-sc.com/17496229772496"
         class="course-select-card"
@@ -2468,8 +2416,6 @@ button{
 
       </a>
 
-
-      <!-- ACADEMY -->
 
       <a
         href="https://yatsuhashi-sc.com/17496090462985"
@@ -2505,8 +2451,6 @@ button{
       </a>
 
 
-      <!-- SCHOOL -->
-
       <a
         href="https://yatsuhashi-sc.com/16975195954735"
         class="course-select-card"
@@ -2540,8 +2484,6 @@ button{
 
       </a>
 
-
-      <!-- KIDS -->
 
       <a
         href="https://fics-academy.github.io/kidsvisitor/"
@@ -2939,114 +2881,6 @@ button{
 
       日々のトレーニングから、<br>
       選手の成長に向き合う。
-
-    </div>
-
-
-    <div class="development-grid">
-
-
-      <div class="development-item">
-
-        <div class="development-number">
-          01
-        </div>
-
-        <h3>
-          駆け引きで相手の逆をつける
-        </h3>
-
-        <p>
-          相手を見て、考えて、意図を持ってプレーする。
-        </p>
-
-      </div>
-
-
-      <div class="development-item">
-
-        <div class="development-number">
-          02
-        </div>
-
-        <h3>
-          ボールを前進させられる
-        </h3>
-
-        <p>
-          状況を判断し、チームを前へ進めるプレーを選択する。
-        </p>
-
-      </div>
-
-
-      <div class="development-item">
-
-        <div class="development-number">
-          03
-        </div>
-
-        <h3>
-          相手を剥がすドリブル
-        </h3>
-
-        <p>
-          個人で局面を変え、相手の守備を突破する。
-        </p>
-
-      </div>
-
-
-      <div class="development-item">
-
-        <div class="development-number">
-          04
-        </div>
-
-        <h3>
-          インターセプト
-        </h3>
-
-        <p>
-          相手の意図を読み、先回りしてボールを奪う。
-        </p>
-
-      </div>
-
-
-      <div class="development-item">
-
-        <div class="development-number">
-          05
-        </div>
-
-        <h3>
-          最後まで相手を追い続ける
-        </h3>
-
-        <p>
-          苦しい瞬間でも、プレーをやめない強さを身につける。
-        </p>
-
-      </div>
-
-
-      <div class="development-item">
-
-        <div class="development-number">
-          06
-        </div>
-
-        <h3>
-          両足で正確にプレーする
-        </h3>
-
-        <p>
-          止める・蹴るを両足で正確に行い、プレーの幅を広げる。
-        </p>
-
-      </div>
-
 
     </div>
 
@@ -3495,8 +3329,6 @@ button{
     <div class="join-grid">
 
 
-      <!-- PLAYER -->
-
       <div class="join-card">
 
         <div class="join-card-number">
@@ -3524,8 +3356,6 @@ button{
 
       </div>
 
-
-      <!-- ACADEMY -->
 
       <div class="join-card">
 
@@ -3555,8 +3385,6 @@ button{
       </div>
 
 
-      <!-- SCHOOL -->
-
       <div class="join-card">
 
         <div class="join-card-number">
@@ -3584,8 +3412,6 @@ button{
 
       </div>
 
-
-      <!-- KIDS -->
 
       <div class="join-card">
 
